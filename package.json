@@ -8,6 +8,7 @@
     "build-dev": "webpack -d -w --mode development",
     "build-prod": "webpack -p --mode production",
     "server-dev": "nodemon server/index.js",
+    "start": "node server/index.js",
     "storybook": "start-storybook"
   },
   "repository": {
@@ -22,9 +23,8 @@
   "homepage": "https://github.com/msyed1438/react-coding-challenge#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "grommet": "^2.12.0",
-    "grommet-icons": "^4.4.0",
     "react": "^16.12.0",
+    "react-anime": "^3.0.3",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.1.0"
