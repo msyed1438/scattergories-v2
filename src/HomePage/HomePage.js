@@ -5,7 +5,7 @@ import Anime, { anime } from 'react-anime'
 
 const HomePage = () => {
     return (
-        <div className=".game-menu-container">
+        <div className=".home-page-container">
             <div className="home-page">
                 <Anime
                     delay={anime.stagger(1600)}
