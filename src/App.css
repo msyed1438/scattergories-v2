@@ -3,14 +3,17 @@ body {
     /* flex-direction: column; */
     font-family: Salsa;
 
-    /* background-color: #f3e9c6; */
 
     background: rgb(251, 243, 219);
     background: linear-gradient(
-        270deg,
+        0deg,
         rgba(251, 243, 219, 1) 25%,
-        rgba(243, 233, 198, 1) 75%
+        rgb(240, 229, 191, 1) 75%
     );
+/* 
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite; */
 
     justify-content: center;
     align-items: center;
@@ -31,6 +34,7 @@ body {
 .create-new-game-button,
 .join-game-button {
     font-size: xx-large;
+    font-weight: bold;
     border: 5px black solid;
     justify-content: space-around;
     background-color: white;
@@ -41,8 +45,8 @@ body {
     box-shadow: inset 0 0 5px #000000;
     transition: 0.2s;
     box-shadow: 2px 2px 4px #000000;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     color: black;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .create-new-game-button:hover,
@@ -52,7 +56,12 @@ body {
 }
 
 .create-new-game-button {
-    background-color: rgb(168, 217, 236);
+    background: rgb(168, 217, 236);
+    background: linear-gradient(
+        0deg,
+        rgba(168, 217, 236, 1) 14%,
+        rgb(124, 177, 196) 85%
+    );
 }
 .home-page-container {
     display: inline-block;
@@ -63,16 +72,32 @@ body {
     justify-content: space-evenly;
 }
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .home-page {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
 }
 
 .join-game-button {
-    background-color: rgb(236, 182, 215);
+    background: rgb(236, 182, 215);
+    background: linear-gradient(
+        0deg,
+        rgba(236, 182, 215, 1) 14%,
+        rgb(216, 132, 184) 85%
+    );
 }
 
 .title {

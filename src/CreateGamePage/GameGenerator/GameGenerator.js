@@ -5,9 +5,12 @@ const GameGenerator = () => {
 
     return (
         <div>
-            <label for="number-of-categories-selector">Choose a car:</label>
+            <h2 className="game-generator-heading">Create your game</h2>
+            <label for="number-of-categories-selector">Number of Categories:</label>
             <select className="number-of-categories-selector">
-                
+                <option className="category-number-option" selected value={1}>
+                    {1}
+                </option>
                 {nums.map(num => (
                     <option className="category-number-option" value={num}>
                         {num}
