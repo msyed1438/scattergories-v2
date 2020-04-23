@@ -4,7 +4,6 @@ import GameGenerator from './GameGenerator/GameGenerator'
 const CreateGamePage = () => {
     return (
         <div>
-            
             <GameGenerator />
         </div>
     )

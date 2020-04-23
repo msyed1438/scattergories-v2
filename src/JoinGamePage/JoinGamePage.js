@@ -2,11 +2,9 @@ import React from 'react'
 
 const JoinGamePage = () => {
     return (
-        <>
-            <div>Yoo</div>
-            <div>wwwww</div>
-            
-        </>
+        <div>
+            <h2>Join Game</h2>
+        </div>
     )
 }
 
