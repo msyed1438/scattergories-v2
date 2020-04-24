@@ -7,10 +7,10 @@ body {
     background: linear-gradient(
         0deg,
         rgba(251, 243, 219, 1) 25%,
-        rgb(235, 223, 182) 75%
+        rgb(235, 221, 175) 75%
     );
-    /* 
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    /* This is a moving gradient example which is so cool but too distracting for the user */
+    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite; */
 
