@@ -7,6 +7,26 @@ var io = require('socket.io')(http)
 
 app.use('/', express.static(path.join(__dirname, '../dist')))
 
+let gameState = {
+    rooms: {
+        test1: {
+            players: {}
+        },
+        test2: {
+            players: {}
+        },
+        test3: {
+            players: {}
+        },
+        test4: {
+            players: {}
+        },
+        test5: {
+            players: {}
+        }
+    }
+}
+
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'))
 })
