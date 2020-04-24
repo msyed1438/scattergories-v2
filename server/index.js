@@ -10,21 +10,21 @@ app.use('/', express.static(path.join(__dirname, '../dist')))
 let gameState = {
     rooms: {
         test1: {
-            players: {}
+            players: {},
         },
         test2: {
-            players: {}
+            players: {},
         },
         test3: {
-            players: {}
+            players: {},
         },
         test4: {
-            players: {}
+            players: {},
         },
         test5: {
-            players: {}
-        }
-    }
+            players: {},
+        },
+    },
 }
 
 app.get('/*', (req, res) => {
