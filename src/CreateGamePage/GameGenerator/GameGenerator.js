@@ -6,7 +6,9 @@ const GameGenerator = () => {
     return (
         <div>
             <h2 className="game-generator-heading">Create your game</h2>
-            <label for="number-of-categories-selector">Number of Categories:</label>
+            <label for="number-of-categories-selector">
+                Number of Categories:
+            </label>
             <select className="number-of-categories-selector">
                 <option className="category-number-option" selected value={1}>
                     {1}
