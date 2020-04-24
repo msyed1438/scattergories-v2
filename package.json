@@ -1,5 +1,5 @@
 {
-  "name": "react-coding-challenge",
+  "name": "scattergories-v2",
   "version": "1.0.0",
   "description": "A practice app for a React coding challenge",
   "main": "index.js",
@@ -32,6 +32,8 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
