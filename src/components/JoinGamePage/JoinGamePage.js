@@ -3,11 +3,11 @@ import RouteTransitionWrapper from '../RouteTransitionWrapper/RouteTransitionWra
 
 const JoinGamePage = () => {
     return (
-        <div>
-            <RouteTransitionWrapper>
+        <RouteTransitionWrapper>
+            <div className="page-container">
                 <h2>Join Game</h2>
-            </RouteTransitionWrapper>
-        </div>
+            </div>
+        </RouteTransitionWrapper>
     )
 }
 

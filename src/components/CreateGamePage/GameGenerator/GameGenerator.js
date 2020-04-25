@@ -4,7 +4,7 @@ const GameGenerator = () => {
     var nums = [2, 3, 4, 5, 6, 7, 8]
 
     return (
-        <div>
+        <div className="page-container">
             <h2 className="game-generator-heading">Create your game</h2>
             <label for="number-of-categories-selector">
                 Number of Categories:

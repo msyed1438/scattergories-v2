@@ -58,13 +58,13 @@ body {
         rgb(124, 177, 196) 85%
     );
 }
-.home-page-container {
-    display: inline-block;
-}
 
 .game-menu {
     display: flex;
     justify-content: space-evenly;
+}
+.home-page-container {
+    display: inline-block;
 }
 
 @keyframes gradient {
@@ -93,6 +93,15 @@ body {
         rgba(236, 182, 215, 1) 14%,
         rgb(216, 132, 184) 85%
     );
+}
+
+.page-container {
+    border: 6px black solid;
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 4px #000000;
+
 }
 
 .title {
