@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     font-family: Jost;
@@ -9,6 +13,7 @@ body {
         rgb(226, 209, 151) 75%
     );
     /* This is a moving gradient example which is so cool but too distracting for the user */
+
     /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite; */
@@ -31,7 +36,6 @@ body {
 
 .create-new-game-button,
 .join-game-button {
-    font-family: Jost;
     font-size: xx-large;
     font-weight: bold;
     border: 5px black solid;
@@ -50,7 +54,8 @@ body {
 .join-game-button:hover {
     cursor: pointer;
     transform: scale(1.1, 1.1);
-    box-shadow: 2px 2px 4px #000000, inset 0 0 25px #ffffff
+    
+    box-shadow: 2px 2px 4px #000000, inset 0 0 25px #ffffff, inset -3px -3px 17.5px #ffffff, inset 3px 3px 17.5px #ffffff;
 }
 
 .create-new-game-button {
@@ -113,11 +118,11 @@ body {
     font-size: 7em;
     font-weight: bold;
     color: white;
-    /* border: 8px black solid; */
     border-radius: 6px;
-    text-shadow: 2px 2px 4px #000000;
     justify-content: center;
-    -webkit-text-stroke: black;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke: 2px black;
     font-family: 'Pacifico', cursive;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 5px #000000;
+    -webkit-font-smoothing: antialiased;
 }

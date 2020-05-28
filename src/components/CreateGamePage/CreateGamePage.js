@@ -1,13 +1,15 @@
 import React from 'react'
 import GameGenerator from './GameGenerator/GameGenerator'
 
-import RouteTransitionWrapper from '../RouteTransitionWrapper/RouteTransitionWrapper'
+import RouteTransitionWrapper from '../AnimationWrappers/RouteTransitionWrapper/RouteTransitionWrapper'
 
 const CreateGamePage = () => {
     return (
-        <RouteTransitionWrapper>
-            <GameGenerator />
-        </RouteTransitionWrapper>
+        <div className="create-game-page">
+            <RouteTransitionWrapper>
+                <GameGenerator />
+            </RouteTransitionWrapper>
+        </div>
     )
 }
 

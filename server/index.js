@@ -47,6 +47,7 @@ io.on('connection', clientSocket => {
         console.log('user disconnected')
     })
     clientSocket.on('hello', string => {
+        console.log('Received a hello on server side')
         clientSocket.emit('ping', {payload: 'yo'})
     })
 })

@@ -1,13 +1,15 @@
 import React from 'react'
-import RouteTransitionWrapper from '../RouteTransitionWrapper/RouteTransitionWrapper'
+import RouteTransitionWrapper from '../AnimationWrappers/RouteTransitionWrapper/RouteTransitionWrapper'
 
 const JoinGamePage = () => {
     return (
-        <RouteTransitionWrapper>
-            <div className="page-container">
-                <h2>Join Game</h2>
-            </div>
-        </RouteTransitionWrapper>
+        <div className="join-game-page">
+            <RouteTransitionWrapper>
+                <div className="page-container">
+                    <h1>Join Game</h1>
+                </div>
+            </RouteTransitionWrapper>
+        </div>
     )
 }
 

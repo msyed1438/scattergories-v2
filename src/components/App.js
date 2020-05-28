@@ -1,23 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import socketIOClient from 'socket.io-client'
-const ENDPOINT = 'http://127.0.0.1:3000'
 
 import HomePage from './HomePage/HomePage'
 import CreateGamePage from './CreateGamePage/CreateGamePage'
 import JoinGamePage from './JoinGamePage/JoinGamePage'
 
 import './App.css'
-const socket = socketIOClient(ENDPOINT)
+
+import { useSelector } from 'react-redux'
 
 const App = () => {
-    useEffect(() => {
-        socket.on('yoo', data => {
-            console.log('YOOOOOOO!')
-        })
-        socket.emit('hello')
-    }, [])
-
+    const counter = useSelector(state => state.meow)
+    console.log(counter)
     return (
         <Switch>
             <Route path="/create-game">
