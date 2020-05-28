@@ -26,6 +26,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "express": "^4.17.1",
+    "grommet": "^2.13.0",
+    "grommet-icons": "^4.4.0",
     "react": "^16.12.0",
     "react-anime": "^3.0.3",
     "react-dom": "^16.12.0",

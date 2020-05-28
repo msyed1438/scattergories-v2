@@ -1,6 +1,6 @@
 body {
     display: flex;
-    font-family: Salsa;
+    font-family: Jost;
 
     background: rgb(251, 243, 219);
     background: linear-gradient(
@@ -31,6 +31,7 @@ body {
 
 .create-new-game-button,
 .join-game-button {
+    font-family: Jost;
     font-size: xx-large;
     font-weight: bold;
     border: 5px black solid;
@@ -38,8 +39,9 @@ body {
     background-color: white;
     padding: 20px 30px 20px 30px;
     border-radius: 8px;
+    border-radius: 50px;
     transition: 0.2s;
-    box-shadow: 2px 2px 4px #000000;
+    box-shadow: 2px 2px 4px #000000, inset 0 0 17.5px #ffffff;
     text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5);
     color: black;
 }
@@ -48,14 +50,15 @@ body {
 .join-game-button:hover {
     cursor: pointer;
     transform: scale(1.1, 1.1);
+    box-shadow: 2px 2px 4px #000000, inset 0 0 25px #ffffff
 }
 
 .create-new-game-button {
-    background: rgb(168, 217, 236);
+    /* background: rgb(168, 217, 236); */
     background: linear-gradient(
         0deg,
-        rgba(168, 217, 236, 1) 14%,
-        rgb(124, 177, 196) 85%
+        rgb(197, 217, 226) 14%,
+        rgb(116, 174, 196) 85%
     );
 }
 
@@ -90,18 +93,18 @@ body {
     background: rgb(236, 182, 215);
     background: linear-gradient(
         0deg,
-        rgba(236, 182, 215, 1) 14%,
+        rgb(230, 205, 220) 14%,
         rgb(216, 132, 184) 85%
     );
 }
 
 .page-container {
-    border: 6px black solid;
-    background-color: white;
+    border: 6.5px black solid;
     padding: 20px 20px 20px 20px;
-    border-radius: 9px;
-    box-shadow: 2px 2px 4px #000000;
-
+    border-radius: 15px;
+    box-shadow: 2px 2px 7.5px #000000d5, inset 0 0 15px #ffffff;
+    background-color: #aec7e2;
+    background-image: linear-gradient(0deg, #ffffff 0%, #aec7e2 74%);
 }
 
 .title {
@@ -113,7 +116,6 @@ body {
     /* border: 8px black solid; */
     border-radius: 6px;
     text-shadow: 2px 2px 4px #000000;
-
     justify-content: center;
     -webkit-text-stroke: black;
     -webkit-text-stroke-width: 2px;

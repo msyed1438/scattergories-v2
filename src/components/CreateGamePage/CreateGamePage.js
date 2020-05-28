@@ -5,10 +5,9 @@ import RouteTransitionWrapper from '../RouteTransitionWrapper/RouteTransitionWra
 
 const CreateGamePage = () => {
     return (
-            <RouteTransitionWrapper>
-                    <GameGenerator />
-               
-            </RouteTransitionWrapper>
+        <RouteTransitionWrapper>
+            <GameGenerator />
+        </RouteTransitionWrapper>
     )
 }
 

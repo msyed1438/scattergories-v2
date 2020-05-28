@@ -1,5 +1,7 @@
 import React from 'react'
 
+import MountingDemo from '../test-components/AnimeMountDismountExample'
+
 export default { title: 'Components' }
 
-export const HelloWorldExample = () => <div>Hello world</div>
+export const MountingDemoExample = () => <MountingDemo />
