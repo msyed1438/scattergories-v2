@@ -1,19 +1,43 @@
 // Actions
-const LOAD = 'my-app/rooms/CREATE'
-const CREATE = 'my-app/rooms/JOIN'
+const CREATE_ROOM = 'CREATE_ROOM'
+
+//Initial State
+const initialState = {
+    roomName: '',
+    username: '',
+    categories: [],
+    numberOfCategories: 1,
+    gameIsInSession: false,
+    gameEntries: {},
+}
 
 // Reducer
-export default function reducer(state = { meow: 'meowwwwwwww' }, action = {}) {
+export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
-        // do reducer stuff
+
+        case CREATE_ROOM:
+
+            console.log('We got here!')
+            const { username, roomName, numberOfCategories } = action.payload
+            console.log('Here is our payload in Redux store: ', action.payload)
+            
+            return {
+                ...state,
+                username,
+                roomName,
+                numberOfCategories,
+            }
+
         default:
+
             return state
+
     }
 }
 
 // Action Creators
-export function loadWidgets() {
-    return { type: LOAD }
+export function createRoom(roomConfig) {
+    return { type: CREATE_ROOM, payload: roomConfig }
 }
 
 export function createWidget(widget) {

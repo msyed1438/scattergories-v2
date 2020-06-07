@@ -5,21 +5,29 @@
 body {
     display: flex;
     font-family: Jost;
-
-    background: rgb(251, 243, 219);
+    font-size: 20px;
+    /* background: rgb(251, 243, 219);
     background: linear-gradient(
         0deg,
-        rgba(251, 243, 219, 1) 25%,
+        rgba(251, 243, 219) 25%,
         rgb(226, 209, 151) 75%
-    );
+    ); */
+
     /* This is a moving gradient example which is so cool but too distracting for the user */
 
-    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite; */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 300% 300%;
+    animation: gradient 60s ease infinite;
 
     justify-content: center;
     align-items: center;
+
+    /* background-image: url("https://i.imgur.com/yaw3U3X.jpg"); 
+    background-color: #fff444; 
+    height: 500px; 
+    background-position: center;
+    background-repeat: repeat; 
+    background-size: cover;  */
 }
 
 body,
@@ -34,6 +42,45 @@ body {
     min-height: 100%;
 }
 
+input[type='text'] {
+    font-size: 15px;
+}
+
+input[type='text']:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.categories-dropdown {
+    font-size: 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.character-limit-message {
+    font-size: 12.5px;
+    margin-top: 0px;
+    color: gray;
+}
+
+.create-game-title {
+    margin: 5px 10px 5px 10px;
+    font-family: Pacifico, cursive;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 5px #000000;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+    -webkit-text-stroke: black 0.25px;
+    letter-spacing: 4px;
+    font-size: 50px;
+}
+
 .create-new-game-button,
 .join-game-button {
     font-size: xx-large;
@@ -45,31 +92,79 @@ body {
     border-radius: 8px;
     border-radius: 50px;
     transition: 0.2s;
-    box-shadow: 2px 2px 4px #000000, inset 0 0 17.5px #ffffff;
+    box-shadow: 2px 2px 4px #000000, inset 2px 2px 15px #ffffff,
+        inset -2px -2px 15px #ffffff;
     text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5);
     color: black;
+    transition: 0.25s;
 }
 
 .create-new-game-button:hover,
 .join-game-button:hover {
     cursor: pointer;
     transform: scale(1.1, 1.1);
-    
-    box-shadow: 2px 2px 4px #000000, inset 0 0 25px #ffffff, inset -3px -3px 17.5px #ffffff, inset 3px 3px 17.5px #ffffff;
+
+    box-shadow: 2px 2px 4px #000000, inset 0 0 22.5px #ffffff,
+        inset -3px -3px 22.5px #ffffff, inset 3px 3px 22.5px #ffffff;
 }
 
 .create-new-game-button {
-    /* background: rgb(168, 217, 236); */
+    background: rgb(168, 217, 236);
     background: linear-gradient(
         0deg,
-        rgb(197, 217, 226) 14%,
+        rgb(210, 226, 235) 14%,
         rgb(116, 174, 196) 85%
     );
+}
+
+.create-game-form-button {
+    font-weight: bold;
+    border: 2px black solid;
+    background-color: white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50px;
+    transition: 0.2s;
+    box-shadow: 2px 2px 4px #000000, inset 2px 2px 5px #ffffff,
+        inset -2px -2px 15px #ffffff;
+    text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5);
+    color: black;
+    transition: 0.25s;
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(
+        0deg,
+        rgb(210, 226, 235) 14%,
+        rgb(178, 208, 219) 85%
+    );
+    font-size: 20px;
+}
+
+.create-game-form-button:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    box-shadow: 2px 2px 4px #000000, inset 0 0 10px #ffffff,
+        inset -3px -3px 10px #ffffff, inset 3px 3px 10px #ffffff;
+}
+
+.create-game-form-button-container {
+    /* justify-content: space-around; */
+    
+}
+
+.game-generator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-menu {
     display: flex;
     justify-content: space-evenly;
+}
+
+.game-room-creation-room {
+    width: 100%;
 }
 .home-page-container {
     display: inline-block;
@@ -107,12 +202,14 @@ body {
     border: 6.5px black solid;
     padding: 20px 20px 20px 20px;
     border-radius: 15px;
-    box-shadow: 2px 2px 7.5px #000000d5, inset 0 0 15px #ffffff;
+    box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
+        inset -2px -2px 20px #ffffff;
     background-color: #aec7e2;
     background-image: linear-gradient(0deg, #ffffff 0%, #aec7e2 74%);
 }
 
 .title {
+    /* background-image: url(https://image.freepik.com/free-vector/letters-pattern_1003-69.jpg); */
     display: flex;
     flex-direction: row;
     font-size: 7em;
@@ -125,4 +222,42 @@ body {
     text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
         -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 5px #000000;
     -webkit-font-smoothing: antialiased;
+}
+
+.username-field,
+.room-name-field,
+.number-of-categories-field {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding: 10px;
+    text-shadow: white;
+    border-radius: 5px;
+    background: rgb(210, 219, 231);
+    background: linear-gradient(
+        180deg,
+        rgb(225, 233, 243) 50%,
+        rgb(239, 242, 245) 100%
+    );
+
+    /* text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5); */
+    box-shadow: 0 0 5px #000000d5;
+    margin: 20px 10px 20px 10px;
+}
+
+.number-of-categories-field {
+    flex-direction: column;
+}
+
+.username-input,
+.room-name-input {
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid #aec7e2;
+    flex: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }

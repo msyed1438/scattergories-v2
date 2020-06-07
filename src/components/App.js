@@ -7,11 +7,9 @@ import JoinGamePage from './JoinGamePage/JoinGamePage'
 
 import './App.css'
 
-import { useSelector } from 'react-redux'
 
 const App = () => {
-    const counter = useSelector(state => state.meow)
-    console.log(counter)
+
     return (
         <Switch>
             <Route path="/create-game">

@@ -36,7 +36,8 @@ class AnimeMountDismountExample extends Component {
         }
 
         let animeProps;
-        animeProps = mounted ? animePropsMount : animePropsDismount  
+        animeProps = mounted ? animePropsMount : animePropsDismount 
+        
 
         return (
             <div>
