@@ -1,5 +1,6 @@
 // Actions
 const CREATE_ROOM = 'CREATE_ROOM'
+const CREATE_CATEGORIES = 'CREATE_CATEGORIES'
 
 //Initial State
 const initialState = {
@@ -14,13 +15,9 @@ const initialState = {
 // Reducer
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
-
         case CREATE_ROOM:
-
-            console.log('We got here!')
             const { username, roomName, numberOfCategories } = action.payload
-            console.log('Here is our payload in Redux store: ', action.payload)
-            
+
             return {
                 ...state,
                 username,
@@ -28,10 +25,15 @@ export default function reducer(state = initialState, action = {}) {
                 numberOfCategories,
             }
 
+        case CREATE_CATEGORIES:
+            const categories = action.payload
+
+            return {
+                ...state,
+                categories,
+            }
         default:
-
             return state
-
     }
 }
 
@@ -40,16 +42,8 @@ export function createRoom(roomConfig) {
     return { type: CREATE_ROOM, payload: roomConfig }
 }
 
-export function createWidget(widget) {
-    return { type: CREATE, widget }
-}
-
-export function updateWidget(widget) {
-    return { type: UPDATE, widget }
-}
-
-export function removeWidget(widget) {
-    return { type: REMOVE, widget }
+export function createCategories(categories) {
+    return { type: CREATE_CATEGORIES, payload: categories }
 }
 
 // side effects, only as applicable

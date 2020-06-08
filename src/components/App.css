@@ -17,7 +17,7 @@ body {
 
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 300% 300%;
-    animation: gradient 60s ease infinite;
+    animation: gradient 20s ease infinite;
 
     justify-content: center;
     align-items: center;
@@ -139,11 +139,19 @@ select:focus {
     font-size: 20px;
 }
 
+
 .create-game-form-button:hover {
     cursor: pointer;
     transform: scale(1.1, 1.1);
     box-shadow: 2px 2px 4px #000000, inset 0 0 10px #ffffff,
         inset -3px -3px 10px #ffffff, inset 3px 3px 10px #ffffff;
+}
+
+.create-game-form-button:disabled {
+    color: rgb(197, 194, 194);
+    pointer-events: none;
+    background: gray;
+    box-shadow: 2px 2px 4px #000000;
 }
 
 .create-game-form-button-container {
