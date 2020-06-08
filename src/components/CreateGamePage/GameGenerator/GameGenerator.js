@@ -84,7 +84,7 @@ const GameGenerator = () => {
                             maxLength={25}
                         />
                         <p className="character-limit-message">
-                            Between 7 to 25 letters...ish
+                            Between 7 to 25 letters
                         </p>
                     </div>
 
@@ -99,7 +99,7 @@ const GameGenerator = () => {
                             maxLength={25}
                         />
                         <p className="character-limit-message">
-                            Between 7 to 25 letters...ish, this shit isn't working like I planned tbh
+                            Between 7 to 25 letters
                         </p>
                     </div>
 
