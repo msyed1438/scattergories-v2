@@ -56,9 +56,6 @@ select:focus {
     border: 1px solid rgba(81, 203, 238, 1);
 }
 
-.arrow-down {
-}
-
 .categories-dropdown {
     font-size: 20px;
     -webkit-transition: all 0.3s ease-in-out;
