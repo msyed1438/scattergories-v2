@@ -4,12 +4,12 @@ import { Switch, Route } from 'react-router-dom'
 import HomePage from './HomePage/HomePage'
 import CreateGamePage from './CreateGamePage/CreateGamePage'
 import JoinGamePage from './JoinGamePage/JoinGamePage'
+import GameRoomPage from './GameRoomPage/GameRoomPage'
+import CategoryFormPage from './CreateGamePage/GameGenerator/CategoryFormPage'
 
 import './App.css'
 
-
 const App = () => {
-
     return (
         <Switch>
             <Route path="/create-game">
@@ -20,6 +20,12 @@ const App = () => {
             </Route>
             <Route exact path="/">
                 <HomePage />
+            </Route>
+            <Route path="/game-room">
+                <GameRoomPage />
+            </Route>
+            <Route path="/category-form">
+                <CategoryFormPage />
             </Route>
         </Switch>
     )

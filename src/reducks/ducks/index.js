@@ -10,6 +10,7 @@ const initialState = {
     numberOfCategories: 1,
     gameIsInSession: false,
     gameEntries: {},
+    roundData: {},
 }
 
 // Reducer
@@ -32,6 +33,7 @@ export default function reducer(state = initialState, action = {}) {
                 ...state,
                 categories,
             }
+            
         default:
             return state
     }

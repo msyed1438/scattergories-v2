@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 import { createRoom } from '../../../reducks/ducks/index' //Action for Redux
+
+import { Link } from 'react-router-dom'
+
+import clientSocket from '../../socketInstance'
+
 
 const GameGenerator = () => {
     //Form state hooks:
@@ -12,8 +17,14 @@ const GameGenerator = () => {
     const [numberOfCategories, setNumberOfCategories] = useState(1)
     const [buttonDisabled, setButtonDisabled] = useState(true)
 
-    //Only allow submission if...
-    const isAbleToSubmit = username.length >= 7 && roomName.length >= 7
+    //Validation
+    useEffect(() => {
+        if (roomName.length >= 7 && username.length >= 7) {
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
+    }, [username, roomName])
 
     //Redux dispatch hook
     const dispatch = useDispatch()
@@ -28,12 +39,6 @@ const GameGenerator = () => {
         if (e.target.value === '' || re.test(e.target.value)) {
             setUsername(e.target.value)
         }
-
-        if (isAbleToSubmit) {
-            setButtonDisabled(false)
-        } else {
-            setButtonDisabled(true)
-        }
     }
 
     const handleRoomNameChange = e => {
@@ -44,12 +49,6 @@ const GameGenerator = () => {
         if (e.target.value === '' || re.test(e.target.value)) {
             setRoomName(e.target.value)
         }
-
-        if (isAbleToSubmit) {
-            setButtonDisabled(false)
-        } else {
-            setButtonDisabled(true)
-        }
     }
 
     const handleChooseCategoriesButtonClick = () => {
@@ -58,6 +57,8 @@ const GameGenerator = () => {
             roomName,
             numberOfCategories,
         }
+
+        clientSocket.emit('SET_SOCKET_USERNAME', username)
 
         dispatch(createRoom(payload))
     }
@@ -72,7 +73,6 @@ const GameGenerator = () => {
             <div className="game-generator">
                 <h1 className="create-game-title">Create a Game!</h1>
                 <form className="game-room-creation-room">
-
                     <div className="username-field">
                         <label htmlFor="username">Username:</label>
                         <input
@@ -125,17 +125,21 @@ const GameGenerator = () => {
                     </div>
 
                     <div className="create-game-form-button-container">
-                        <button
-                            className="create-game-form-button"
-                            type="button"
-                            onClick={handleChooseCategoriesButtonClick}
-                            disabled={buttonDisabled}
+                        <Link
+                            to="/category-form"
+                            style={{ textDecoration: 'none' }}
                         >
-                            Choose Your Categories{' '}
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </button>
+                            <button
+                                className="create-game-form-button"
+                                type="submit"
+                                onClick={handleChooseCategoriesButtonClick}
+                                disabled={buttonDisabled}
+                            >
+                                Choose Your Categories{' '}
+                                <FontAwesomeIcon icon={faArrowRight} />
+                            </button>
+                        </Link>
                     </div>
-
                 </form>
             </div>
         </div>
