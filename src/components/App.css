@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+/* Confession: I have no idea what I'm doing with CSS, dear future people trying to understand what's 
+happening here, even I don't know. I can only say I'm sorry. :'(
+*/
+
 body {
     display: flex;
     font-family: Jost;
