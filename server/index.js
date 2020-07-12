@@ -36,20 +36,25 @@ const gameState = {
     },
 }
 
-
 //Mock Data:
 
-gameState.rooms['testRoom'] = new Room('testRoom', ['Foods', 'Songs', 'Countries'])
+gameState.rooms['testRoom'] = new Room('testRoom', [
+    'Foods',
+    'Songs',
+    'Countries',
+])
 gameState.rooms.testRoom.addPlayer('Muin', 123)
 gameState.rooms.testRoom.addPlayer('Soud', 456)
 gameState.rooms.testRoom.addPlayer('Mahir', 789)
 
-gameState.rooms['anotherRoom'] = new Room('anotherRoom', ['Cartoons', 'Artists', 'Computer Science'])
+gameState.rooms['anotherRoom'] = new Room('anotherRoom', [
+    'Cartoons',
+    'Artists',
+    'Computer Science',
+])
 gameState.rooms.anotherRoom.addPlayer('MewMew', 123)
 gameState.rooms.anotherRoom.addPlayer('Choyon', 456)
 gameState.rooms.anotherRoom.addPlayer('Riham', 789)
-
-
 
 const getListOfRooms = () => Object.keys(gameState.rooms)
 
@@ -68,12 +73,11 @@ io.on('connection', clientSocket => {
             const roomIsEmpty =
                 Object.keys(gameState.rooms[clientSocket.roomName].room) //TODO: Check if this works
                     .length === 0
-            
+
             if (roomIsEmpty) {
                 delete gameState.rooms[clientSocket.roomName]
                 clientSocket.emit('UPDATE_ROOMS', getListOfRooms())
             }
-            
         }
     })
 
@@ -110,6 +114,8 @@ io.on('connection', clientSocket => {
             'Player was added. Here is our roomState now: ',
             gameState.rooms[roomName]
         )
+
+        clientSocket.emit('UPDATE_ROOMS', getListOfRooms())
     })
 
     clientSocket.on('GET_LIST_OF_ROOMS', () => {
