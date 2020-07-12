@@ -1,6 +1,7 @@
 // Actions
 const CREATE_ROOM = 'CREATE_ROOM'
 const CREATE_CATEGORIES = 'CREATE_CATEGORIES'
+const JOIN_ROOM = 'JOIN_ROOM'
 
 //Initial State
 const initialState = {
@@ -16,7 +17,7 @@ const initialState = {
 // Reducer
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
-        case CREATE_ROOM:
+        case CREATE_ROOM: {
             const { username, roomName, numberOfCategories } = action.payload
 
             return {
@@ -25,15 +26,26 @@ export default function reducer(state = initialState, action = {}) {
                 roomName,
                 numberOfCategories,
             }
-
-        case CREATE_CATEGORIES:
+        }
+        case CREATE_CATEGORIES: {
             const categories = action.payload
 
             return {
                 ...state,
                 categories,
             }
-            
+        }
+
+        case JOIN_ROOM: {
+            const { username, roomName } = action.payload
+
+            return {
+                ...state,
+                username,
+                roomName,
+            }
+        }
+
         default:
             return state
     }
@@ -47,6 +59,11 @@ export function createRoom(roomConfig) {
 export function createCategories(categories) {
     return { type: CREATE_CATEGORIES, payload: categories }
 }
+
+export function joinGameRoom(roomConfig) {
+    return { type: JOIN_ROOM, payload: roomConfig }
+}
+
 
 // side effects, only as applicable
 // e.g. thunks, epics, etc

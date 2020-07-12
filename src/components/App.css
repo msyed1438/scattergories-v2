@@ -77,7 +77,8 @@ select:focus {
     color: gray;
 }
 
-.create-game-title {
+.create-game-title,
+.join-game-title {
     margin: 5px 10px 5px 10px;
     font-family: Pacifico, cursive;
     text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
@@ -219,7 +220,9 @@ select:focus {
     box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
         inset -2px -2px 20px #ffffff;
     background-color: #aec7e2;
-    background-image: radial-gradient(circle, #ffffff 0%, #98bbdf 74%);
+    background-image: linear-gradient(0deg, #d4dffd 20%, #98bbdf 64%);
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
