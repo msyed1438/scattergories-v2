@@ -227,8 +227,15 @@ option {
     border-radius: 15px;
     box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
         inset -2px -2px 20px #ffffff;
-        background: rgb(148,194,242);
-        background: linear-gradient(150deg, rgb(88, 160, 236) 5%, rgb(164, 188, 235) 29%, #ffffff 52%,rgb(235, 180, 241) 80%, rgb(241, 130, 208) 95%);
+    background: rgb(148, 194, 242);
+    background: linear-gradient(
+        150deg,
+        rgb(88, 160, 236) 5%,
+        rgb(164, 188, 235) 29%,
+        #ffffff 52%,
+        rgb(235, 180, 241) 80%,
+        rgb(241, 130, 208) 95%
+    );
     justify-content: center;
     align-items: center;
 }
@@ -267,7 +274,7 @@ option {
     );
 
     /* text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5); */
-    box-shadow: inset 0 0 7.5px 3.5px  #f5f4f4,  0 0 3.5px 0.25px #050505;
+    box-shadow: inset 0 0 7.5px 3.5px #f5f4f4, 0 0 3.5px 0.25px #050505;
     margin: 20px 10px 20px 10px;
 }
 
