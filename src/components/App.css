@@ -60,6 +60,10 @@ select:focus {
     border: 1px solid rgba(81, 203, 238, 1);
 }
 
+option {
+    font-size: medium;
+}
+
 .categories-dropdown {
     font-size: 20px;
     -webkit-transition: all 0.3s ease-in-out;
@@ -248,6 +252,7 @@ select:focus {
 .username-field,
 .room-name-field,
 .number-of-categories-field {
+    border: 1px solid rgb(253, 250, 250);
     display: flex;
     flex-direction: column;
     color: black;
@@ -257,12 +262,12 @@ select:focus {
     background: rgb(210, 219, 231);
     background: linear-gradient(
         180deg,
-        rgb(174, 201, 243) 20%,
+        rgb(197, 218, 252) 20%,
         rgb(245, 239, 239) 100%
     );
 
     /* text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5); */
-    box-shadow: inset 0 0 2.5px #000000d5,  0 0 5px #000000d5;;
+    box-shadow: inset 0 0 7.5px 3.5px  #f5f4f4,  0 0 3.5px 0.25px #050505;
     margin: 20px 10px 20px 10px;
 }
 
