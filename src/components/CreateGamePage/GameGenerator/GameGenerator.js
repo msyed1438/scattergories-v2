@@ -68,6 +68,9 @@ const GameGenerator = () => {
         setNumberOfCategories(numberOfCategories)
     }
 
+    //TODO: Add validation in useEffect to emit for every keystroke and check to see if username (in that room)
+    //      and roomName already exists, and if they do, prompt user to type a different name
+
     return (
         <div className="page-container">
             <div className="game-generator">
