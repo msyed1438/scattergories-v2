@@ -57,6 +57,7 @@ gameState.rooms.anotherRoom.addPlayer('Choyon', 456)
 gameState.rooms.anotherRoom.addPlayer('Riham', 789)
 
 const getListOfRooms = () => Object.keys(gameState.rooms)
+const getRoomCategories = (roomName) => gameState.rooms[roomName].categories
 
 io.on('connection', clientSocket => {
     console.log('A user connected...')
@@ -116,6 +117,11 @@ io.on('connection', clientSocket => {
         )
 
         clientSocket.emit('UPDATE_ROOMS', getListOfRooms())
+    })
+
+    clientSocket.on('JOIN_GAME_ROOM', (roomName) => {
+        clientSocket.join(roomName)
+        clientSocket.emit('ROOM_CATEGORIES', getRoomCategories(roomName))
     })
 
     clientSocket.on('GET_LIST_OF_ROOMS', () => {
