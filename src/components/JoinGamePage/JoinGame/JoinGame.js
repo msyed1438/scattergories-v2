@@ -38,7 +38,7 @@ const JoinGame = () => {
         }
 
         clientSocket.emit('SET_SOCKET_USERNAME', username)
-
+        clientSocket.emit('JOIN_GAME_ROOM', roomName)
         dispatch(joinGameRoom(payload))
     }
 
@@ -50,7 +50,13 @@ const JoinGame = () => {
         clientSocket.on('LIST_OF_ROOMS', rooms => {
             setRooms(rooms)
         })
+
+        clientSocket.on('UPDATE_ROOMS', rooms => {
+            setRooms(rooms)
+        })
     }, [])
+
+    //TODO: Add socket.on('UPDATE_ROOMS')
 
     useEffect(() => {
         if (username.length >= 7) {
