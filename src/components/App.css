@@ -223,8 +223,8 @@ select:focus {
     border-radius: 15px;
     box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
         inset -2px -2px 20px #ffffff;
-    background-color: #aec7e2;
-    background-image: linear-gradient(0deg, #d4dffd 20%, #98bbdf 64%);
+        background: rgb(148,194,242);
+        background: linear-gradient(150deg, rgb(88, 160, 236) 5%, rgb(164, 188, 235) 29%, #ffffff 52%,rgb(235, 180, 241) 80%, rgb(241, 130, 208) 95%);
     justify-content: center;
     align-items: center;
 }
@@ -257,12 +257,12 @@ select:focus {
     background: rgb(210, 219, 231);
     background: linear-gradient(
         180deg,
-        rgb(225, 233, 243) 50%,
-        rgb(239, 242, 245) 100%
+        rgb(174, 201, 243) 20%,
+        rgb(245, 239, 239) 100%
     );
 
     /* text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.5); */
-    box-shadow: 0 0 5px #000000d5;
+    box-shadow: inset 0 0 2.5px #000000d5,  0 0 5px #000000d5;;
     margin: 20px 10px 20px 10px;
 }
 
