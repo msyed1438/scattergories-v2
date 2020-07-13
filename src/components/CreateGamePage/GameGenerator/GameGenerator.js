@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 
 import clientSocket from '../../socketInstance'
 
-
 const GameGenerator = () => {
     //Form state hooks:
     const [username, setUsername] = useState('')
@@ -130,7 +129,10 @@ const GameGenerator = () => {
                     <div className="create-game-form-button-container">
                         <Link
                             to="/category-form"
-                            style={{ textDecoration: 'none' }}
+                            style={{
+                                textDecoration: 'none',
+                                pointerEvents: buttonDisabled ? 'none' : 'auto',
+                            }}
                         >
                             <button
                                 className="create-game-form-button"

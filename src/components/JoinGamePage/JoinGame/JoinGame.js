@@ -108,7 +108,10 @@ const JoinGame = () => {
                     <div className="create-game-form-button-container">
                         <Link
                             to="/game-room"
-                            style={{ textDecoration: 'none' }}
+                            style={{
+                                textDecoration: 'none',
+                                pointerEvents: buttonDisabled ? 'none' : 'auto',
+                            }}
                         >
                             <button
                                 className="create-game-form-button"
