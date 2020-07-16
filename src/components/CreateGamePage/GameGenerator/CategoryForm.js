@@ -60,12 +60,7 @@ const CategoryForm = () => {
         const newValue = evt.target.value
         setUserInput({ [name]: newValue })
 
-        const categories = Object.values(userInput)
-        if (categories.every(category => category.length >= 3)) {
-            setButtonDisabled(false)
-        } else {
-            setButtonDisabled(true)
-        }
+
     }
 
     //TODO: Add form validation to disable button until all entries are changed
