@@ -28,6 +28,17 @@ const CategoryForm = () => {
         generateInitialCategoryState(numberOfCategories) // <---Initial State: e.g. generateNumberOfInitialCategories(3) -> Output:  {category1: '', category2: '', category3: ''}
     )
 
+    const [buttonDisabled, setButtonDisabled] = useState(true)
+
+    useEffect(() => {
+        const categories = Object.values(userInput)
+        if (categories.every(category => category.length >= 3)) {
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
+    }, [userInput])
+
     const handleCreateGameRoomButtonClick = () => {
         const categories = Object.values(userInput)
         const categoriesAction = createCategories(categories)
@@ -48,6 +59,13 @@ const CategoryForm = () => {
         const name = evt.target.name
         const newValue = evt.target.value
         setUserInput({ [name]: newValue })
+
+        const categories = Object.values(userInput)
+        if (categories.every(category => category.length >= 3)) {
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
     }
 
     //TODO: Add form validation to disable button until all entries are changed
@@ -68,11 +86,17 @@ const CategoryForm = () => {
                     )
                 })}
             </div>
-            <Link to="/game-room" style={{ textDecoration: 'none' }}>
+            <Link
+                style={{
+                    textDecoration: 'none',
+                    pointerEvents: buttonDisabled ? 'none' : 'auto',
+                }}
+            >
                 <button
                     className="create-game-form-button"
                     type="submit"
                     onClick={handleCreateGameRoomButtonClick}
+                    disabled={buttonDisabled}
                 >
                     Create Game Room
                 </button>
