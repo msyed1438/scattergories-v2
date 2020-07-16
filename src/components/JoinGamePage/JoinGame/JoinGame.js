@@ -44,17 +44,35 @@ const JoinGame = () => {
 
     useEffect(() => {
         clientSocket.emit('GET_LIST_OF_ROOMS')
-    }, [])
 
-    useEffect(() => {
         clientSocket.on('LIST_OF_ROOMS', rooms => {
+            console.log('Got the list of rooms: ', rooms)
             setRooms(rooms)
         })
 
         clientSocket.on('UPDATE_ROOMS', rooms => {
+            console.log('There was a change in rooms, here they are : ', rooms)
             setRooms(rooms)
         })
+
+        clientSocket.on('ROOM_CATEGORIES', categories => {
+            console.log(categories)
+        })
     }, [])
+
+    // useEffect(() => {
+    //     clientSocket.on('LIST_OF_ROOMS', rooms => {
+    //         console.log('Got the list of rooms: ', rooms)
+    //         setRooms(rooms)
+    //     })
+    // }, [])
+
+    // useEffect(() => {
+    //     clientSocket.on('UPDATE_ROOMS', rooms => {
+    //         console.log('The rooms were updated')
+    //         setRooms(rooms)
+    //     })
+    // }, [])
 
     //TODO: Add socket.on('UPDATE_ROOMS')
 
@@ -70,7 +88,7 @@ const JoinGame = () => {
         <div className="page-container">
             <div className="game-generator">
                 <h1 className="join-game-title">Join a Game!</h1>
-                <form>
+                <form className="game-room-creation-room">
                     <div className="username-field">
                         <label htmlFor="username">Username:</label>
                         <input
