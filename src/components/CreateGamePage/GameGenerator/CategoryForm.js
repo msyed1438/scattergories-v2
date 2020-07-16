@@ -59,8 +59,6 @@ const CategoryForm = () => {
         const name = evt.target.name
         const newValue = evt.target.value
         setUserInput({ [name]: newValue })
-
-
     }
 
     //TODO: Add form validation to disable button until all entries are changed
@@ -82,6 +80,7 @@ const CategoryForm = () => {
                 })}
             </div>
             <Link
+                to="/game-room"
                 style={{
                     textDecoration: 'none',
                     pointerEvents: buttonDisabled ? 'none' : 'auto',
