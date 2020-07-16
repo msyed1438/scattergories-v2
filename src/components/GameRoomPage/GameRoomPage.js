@@ -1,10 +1,13 @@
 import React from 'react'
+import GameRoom from './GameRoom/GameRoom'
+
+import RouteTransitionWrapper from '../AnimationWrappers/RouteTransitionWrapper/RouteTransitionWrapper'
 
 const GameRoomPage = () => {
     return (
-        <div className="page-container">
-            Hello world!
-        </div>
+       <RouteTransitionWrapper>
+           <GameRoom />
+       </RouteTransitionWrapper>
     )
 }
 
