@@ -18,7 +18,7 @@ const JoinGame = () => {
     const [buttonDisabled, setButtonDisabled] = useState(true)
 
     const handleUsernameChange = e => {
-        const re = /^[a-zA-Z]+$/
+        const re = /^[a-zA-Z]+$/ //Only letters allowed as input
 
         // if value is not blank, then test the regex
         if (e.target.value === '' || re.test(e.target.value)) {
@@ -43,38 +43,22 @@ const JoinGame = () => {
     }
 
     useEffect(() => {
+
         clientSocket.emit('GET_LIST_OF_ROOMS')
 
         clientSocket.on('LIST_OF_ROOMS', rooms => {
-            console.log('Got the list of rooms: ', rooms)
             setRooms(rooms)
         })
 
         clientSocket.on('UPDATE_ROOMS', rooms => {
-            console.log('There was a change in rooms, here they are : ', rooms)
+            console.log('We got the rooms on JoinRoom component: ', rooms)
             setRooms(rooms)
         })
 
         clientSocket.on('ROOM_CATEGORIES', categories => {
-            console.log(categories)
+            console.log('Got the categories: ', categories)
         })
     }, [])
-
-    // useEffect(() => {
-    //     clientSocket.on('LIST_OF_ROOMS', rooms => {
-    //         console.log('Got the list of rooms: ', rooms)
-    //         setRooms(rooms)
-    //     })
-    // }, [])
-
-    // useEffect(() => {
-    //     clientSocket.on('UPDATE_ROOMS', rooms => {
-    //         console.log('The rooms were updated')
-    //         setRooms(rooms)
-    //     })
-    // }, [])
-
-    //TODO: Add socket.on('UPDATE_ROOMS')
 
     useEffect(() => {
         if (username.length >= 7) {
