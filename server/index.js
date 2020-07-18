@@ -89,7 +89,6 @@ io.on('connection', clientSocket => {
         gameState.rooms[roomName] = new Room(roomName, categories)
         console.log('Room was added, here is our game state now: ', gameState)
 
-
         gameState.rooms[roomName].addPlayer(
             clientSocket.username,
             clientSocket.id
@@ -109,7 +108,10 @@ io.on('connection', clientSocket => {
         clientSocket.roomName = roomName
         // clientSocket.emit('ROOM_CATEGORIES', getRoomCategories(roomName))
         gameState.rooms[roomName].addPlayer(clientSocket.username)
-        io.to(clientSocket.roomName).emit('UPDATE_PLAYERS', gameState.rooms)
+        io.to(clientSocket.roomName).emit(
+            'UPDATE_PLAYERS',
+            getRoomPlayers(roomName)
+        )
         console.log('Here is gameState: ', gameState.rooms)
         console.log(
             'Here is the ',
