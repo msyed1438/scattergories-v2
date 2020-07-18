@@ -1,9 +1,11 @@
 import React from 'react'
 
+import Players from './Players'
+
 const GameRoom = () => {
     return (
         <div className="page-container">
-            Hello world!
+            <Players />
         </div>
     )
 }
