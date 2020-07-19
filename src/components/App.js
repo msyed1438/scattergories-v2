@@ -1,5 +1,7 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
+
+import { useSelector } from 'react-redux'
 
 import HomePage from './HomePage/HomePage'
 import CreateGamePage from './CreateGamePage/CreateGamePage'
@@ -10,6 +12,9 @@ import CategoryFormPage from './CreateGamePage/GameGenerator/CategoryFormPage'
 import './App.css'
 
 const App = () => {
+    const username = useSelector(state => state.username)
+    const userWasSet = username !== ''
+
     return (
         <Switch>
             <Route path="/create-game">
@@ -22,10 +27,14 @@ const App = () => {
                 <HomePage />
             </Route>
             <Route path="/game-room">
-                <GameRoomPage />
+                {userWasSet ? <GameRoomPage /> : <Redirect to="/create-game" />}
             </Route>
             <Route path="/category-form">
-                <CategoryFormPage />
+                {userWasSet ? (
+                    <CategoryFormPage />
+                ) : (
+                    <Redirect to="/create-game" />
+                )}
             </Route>
         </Switch>
     )
