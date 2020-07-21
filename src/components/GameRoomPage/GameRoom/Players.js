@@ -17,7 +17,7 @@ const Players = () => {
     }, [])
 
     return (
-        <div>
+        <div className="room-players">
             <h3> Here are the players: </h3>
             {players.map((player, index) => (
                 <li key={index}>{player}</li>
