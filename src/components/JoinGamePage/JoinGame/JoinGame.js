@@ -37,13 +37,14 @@ const JoinGame = () => {
             roomName,
         }
 
+        console.log('Joining the room. Here is the roomName: ', roomName)
+
         clientSocket.emit('SET_SOCKET_USERNAME', username)
         clientSocket.emit('JOIN_GAME_ROOM', roomName)
         dispatch(joinGameRoom(payload))
     }
 
     useEffect(() => {
-
         clientSocket.emit('GET_LIST_OF_ROOMS')
 
         clientSocket.on('LIST_OF_ROOMS', rooms => {
