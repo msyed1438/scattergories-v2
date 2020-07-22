@@ -143,4 +143,4 @@ io.on('connection', clientSocket => {
     })
 })
 
-http.listen(port, () => console.log(`App listening on port ${port}!`))
+http.listen(process.env.PORT || 5000, () => console.log(`App listening on port ${port}!`))
