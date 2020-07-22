@@ -5,7 +5,9 @@ import Players from './Players'
 const GameRoom = () => {
     return (
         <div className="page-container">
-            <Players />
+            <div className="game-room-container">
+                <Players />
+            </div>
         </div>
     )
 }
