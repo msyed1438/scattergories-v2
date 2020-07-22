@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const path = require('path')
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
@@ -143,4 +143,4 @@ io.on('connection', clientSocket => {
     })
 })
 
-http.listen(process.env.PORT || 5000, () => console.log(`App listening on port ${port}!`))
+http.listen(port, () => console.log(`App listening on port ${port}!`))
