@@ -19,8 +19,8 @@ const Players = () => {
     return (
         <div className="room-players">
             <h3> Here are the players: </h3>
-            {players.map((player, index) => (
-                <li key={index}>{player}</li>
+            {players.map((player) => (
+                <li key={player}>{player}</li>
             ))}
         </div>
     )
