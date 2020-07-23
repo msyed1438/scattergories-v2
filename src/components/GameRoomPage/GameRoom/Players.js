@@ -18,10 +18,14 @@ const Players = () => {
 
     return (
         <div className="room-players">
-            <h3> Here are the players: </h3>
-            {players.map((player) => (
-                <li key={player}>{player}</li>
-            ))}
+            <h3 className="players-header"> PLAYERS </h3>
+            <div className="players-container">
+                {players.map(player => (
+                    <li className="player" key={player}>
+                        {player}
+                    </li>
+                ))}
+            </div>
         </div>
     )
 }
