@@ -106,8 +106,7 @@ option {
     justify-content: space-around;
     background-color: white;
     padding: 20px 30px 20px 30px;
-    border-radius: 8px;
-    border-radius: 50px;
+    border-radius: 75px;
     transition: 0.2s;
     box-shadow: 2px 2px 4px #000000, inset 2px 2px 15px #ffffff,
         inset -2px -2px 15px #ffffff;
