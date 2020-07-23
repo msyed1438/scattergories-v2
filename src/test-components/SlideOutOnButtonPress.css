@@ -1,24 +1,8 @@
-.container {
-    display: flex;
-    height: 400px;
-    width: 400px;
-    border: 3px solid pink;
-    justify-content: center;
-    align-items: center;
-    transition: 4s;
-}
-
-.child {
-
-    height: 100px;
-    width: 100px;
-}
-
-.one {
+.room-players {
     border: 3px solid purple;
-}
-
-.two {
-    border: 3px solid green;
-
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    display: inline-flex;
+    flex-direction: column;
 }

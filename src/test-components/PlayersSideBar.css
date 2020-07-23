@@ -1,0 +1,5 @@
+.room-players {
+    box-sizing: border-box;
+    font-family: fantasy;
+    border: 2px solid red;
+}

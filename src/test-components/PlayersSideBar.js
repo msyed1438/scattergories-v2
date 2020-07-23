@@ -1,5 +1,5 @@
 import React from 'react'
-import './SlideOutOnButtonPress.css'
+import './PlayersSideBar.css'
 
 const PlayersSideBar = () => {
     const players = ['Muin', 'MewMew', 'Pushan']
@@ -15,4 +15,3 @@ const PlayersSideBar = () => {
 }
 
 export default PlayersSideBar
-
