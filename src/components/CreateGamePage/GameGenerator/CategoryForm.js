@@ -92,7 +92,7 @@ const CategoryForm = () => {
                     onClick={handleCreateGameRoomButtonClick}
                     disabled={buttonDisabled}
                 >
-                    Create Game Room
+                    Create Game
                 </button>
             </Link>
         </div>
