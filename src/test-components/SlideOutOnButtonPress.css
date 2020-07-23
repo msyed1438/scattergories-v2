@@ -1,8 +1,0 @@
-.room-players {
-    border: 3px solid purple;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    display: inline-flex;
-    flex-direction: column;
-}
