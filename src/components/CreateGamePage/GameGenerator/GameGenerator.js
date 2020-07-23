@@ -18,7 +18,7 @@ const GameGenerator = () => {
 
     //Validation
     useEffect(() => {
-        if (roomName.length >= 7 && username.length >= 7) {
+        if (roomName.length >= 5 && username.length >= 5) {
             setButtonDisabled(false)
         } else {
             setButtonDisabled(true)
@@ -83,10 +83,10 @@ const GameGenerator = () => {
                             type="text"
                             name="username"
                             onChange={handleUsernameChange}
-                            maxLength={25}
+                            maxLength={10}
                         />
                         <p className="character-limit-message">
-                            Between 7 to 25 letters
+                            Between 5 to 10 letters
                         </p>
                     </div>
 
@@ -98,10 +98,10 @@ const GameGenerator = () => {
                             type="text"
                             name="roomName"
                             onChange={handleRoomNameChange}
-                            maxLength={25}
+                            maxLength={10}
                         />
                         <p className="character-limit-message">
-                            Between 7 to 25 letters
+                            Between 5 to 10 letters
                         </p>
                     </div>
 
