@@ -292,7 +292,7 @@ option {
 }
 
 .room-players {
-    border: 3px solid white;
+    border: 3.5px solid white;
     box-sizing: border-box;
     box-shadow: 0px 0px 3.5px 1px black,
         inset 0px 0px 4.5px 1px rgb(155, 117, 60);
@@ -301,7 +301,6 @@ option {
     display: inline-flex;
     flex-direction: column;
     border-radius: 10px;
-    padding: 15px;
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #f3967a 0%, #f3e8ca 74%);
 }
@@ -312,7 +311,7 @@ option {
     border-radius: 20px;
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #ecb061 0%, #f3e8ca 74%);
-    box-shadow: inset 0px 0px 10px white, 0px 0px 3.5px 1px rgb(236, 203, 203);
+    box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
     margin: 5px;
     padding: 5px;
     word-wrap: break-word;
@@ -321,13 +320,20 @@ option {
 
 .players-header {
     /* border: 2px solid red; */
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #f39f86;
+    background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+    border-radius: 7px 7px 0 0;
+    border-bottom: 4px solid white;
     /* text-decoration: underline; */
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     margin-top: 0px;
     font-weight: 900;
     color: rgb(0, 0, 0);
     text-shadow: 0px 0px 5px #c78d2286;
+    font-size: x-large;
 }
 
 .players-container {
@@ -335,4 +341,7 @@ option {
     /* border: 2px solid purple; */
     max-width: 150px;
     max-height: 300px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
 }
