@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@500&display=swap&family=Questrial&display=swap');
 
 * {
     box-sizing: border-box;
@@ -8,14 +8,6 @@ body {
     display: flex;
     font-family: Jost;
     font-size: 20px;
-    /* background: rgb(251, 243, 219);
-    background: linear-gradient(
-        0deg,
-        rgba(251, 243, 219) 25%,
-        rgb(226, 209, 151) 75%
-    ); */
-
-    /* This is a moving gradient example which is so cool but too distracting for the user */
 
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 300% 300%;
@@ -23,13 +15,6 @@ body {
 
     justify-content: center;
     align-items: center;
-
-    /* background-image: url("https://i.imgur.com/yaw3U3X.jpg"); 
-    background-color: #fff444; 
-    height: 500px; 
-    background-position: center;
-    background-repeat: repeat; 
-    background-size: cover;  */
 }
 
 body,
@@ -92,12 +77,14 @@ option {
     -webkit-text-stroke: black 0.125px;
     letter-spacing: 4px;
     font-size: 50px;
+    /* font-weight: bolder; */
 }
 
 .create-new-game-button,
 .join-game-button {
     font-size: xx-large;
     font-weight: bold;
+    font-family: Questrial;
     border: 5px black solid;
     justify-content: space-around;
     background-color: white;
@@ -130,6 +117,7 @@ option {
 }
 
 .create-game-form-button {
+    font-family: Questrial, sans-serif;
     font-weight: bold;
     border: 2px black solid;
     background-color: white;
@@ -163,10 +151,6 @@ option {
     pointer-events: none;
     background: gray;
     box-shadow: 2px 2px 4px #000000;
-}
-
-.create-game-form-button-container {
-    /* justify-content: space-around; */
 }
 
 .game-generator {
@@ -225,11 +209,11 @@ option {
     background: rgb(148, 194, 242);
     background: linear-gradient(
         150deg,
-        rgb(88, 160, 236) 5%,
+        rgb(94, 160, 231) 5%,
         rgb(164, 188, 235) 29%,
         #ffffff 52%,
         rgb(235, 180, 241) 80%,
-        rgb(241, 130, 208) 95%
+        rgb(240, 136, 209) 95%
     );
     justify-content: center;
     align-items: center;
@@ -296,13 +280,13 @@ option {
     box-sizing: border-box;
     box-shadow: 0px 0px 3.5px 1px black,
         inset 0px 0px 4.5px 1px rgb(155, 117, 60);
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     display: inline-flex;
     flex-direction: column;
     border-radius: 10px;
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #f3967a 0%, #f3e8ca 74%);
+    font-family: 'Questrial', sans-serif;
 }
 
 .player {
@@ -312,16 +296,22 @@ option {
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #ecb061 0%, #f3e8ca 74%);
     box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
-    margin: 5px;
-    padding: 5px;
-    word-wrap: break-word;
+    margin: 7.5px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: medium;
+    /* font-weight: bold; */
 }
 
 .players-header {
     /* border: 2px solid red; */
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
     border-radius: 7px 7px 0 0;
@@ -330,16 +320,18 @@ option {
     text-align: center;
     margin-bottom: 0px;
     margin-top: 0px;
-    font-weight: 900;
+    font-weight: 1000;
     color: rgb(0, 0, 0);
     text-shadow: 0px 0px 5px #c78d2286;
     font-size: x-large;
+    box-shadow: inset 0px 0px 2px white;
+    font-family: Jost;
 }
 
 .players-container {
     text-align: center;
     /* border: 2px solid purple; */
-    max-width: 150px;
+    max-width: 250px;
     max-height: 300px;
     padding-left: 15px;
     padding-right: 15px;
