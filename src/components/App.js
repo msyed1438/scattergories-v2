@@ -8,6 +8,7 @@ import CreateGamePage from './CreateGamePage/CreateGamePage'
 import JoinGamePage from './JoinGamePage/JoinGamePage'
 import GameRoomPage from './GameRoomPage/GameRoomPage'
 import CategoryFormPage from './CreateGamePage/GameGenerator/CategoryFormPage'
+import TestComponent from './TestPage/TestComponent'
 
 import './App.css'
 
@@ -35,6 +36,9 @@ const App = () => {
                 ) : (
                     <Redirect to="/create-game" />
                 )}
+            </Route>
+            <Route path="/test-component">
+                <TestComponent />
             </Route>
         </Switch>
     )
