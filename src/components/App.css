@@ -287,6 +287,8 @@ option {
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #f3967a 0%, #f3e8ca 74%);
     font-family: 'Questrial', sans-serif;
+    min-width: 500px;
+    margin-bottom: 5px;
 }
 
 .player {
@@ -296,8 +298,8 @@ option {
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #ecb061 0%, #f3e8ca 74%);
     box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
-    margin: 7.5px;
-
+    margin-top: 4px;
+    margin-bottom: 4px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
@@ -331,9 +333,29 @@ option {
 .players-container {
     text-align: center;
     /* border: 2px solid purple; */
-    max-width: 250px;
-    max-height: 300px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.game-room-container {
+    border: 5px black solid;
+    padding: 20px 20px 20px 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
+        inset -2px -2px 20px #ffffff;
+    background: rgb(148, 194, 242);
+    background: linear-gradient(
+        150deg,
+        rgb(94, 160, 231) 5%,
+        rgb(164, 188, 235) 29%,
+        #ffffff 52%,
+        rgb(235, 180, 241) 80%,
+        rgb(240, 136, 209) 95%
+    );
+    justify-content: center;
+    align-items: center;
 }
