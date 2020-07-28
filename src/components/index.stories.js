@@ -1,11 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-import MountingDemo from '../test-components/AnimeMountDismountExample'
-import Players from '../test-components/Players'
+export default { title: 'Components' };
 
-export default { title: 'Components' }
-
-export const MountingDemoExample = () => <MountingDemo />
-
-export const PlayersExample = () => <Players/>
-
+export const Example = () => <div>Hello world!</div>;
