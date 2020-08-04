@@ -6,7 +6,7 @@
 
 body {
     display: flex;
-    font-family: Jost;
+    font-family: Questrial;
     font-size: 20px;
 
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -287,8 +287,25 @@ option {
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #f3967a 0%, #f3e8ca 74%);
     font-family: 'Questrial', sans-serif;
-    min-width: 500px;
-    margin-bottom: 5px;
+    min-width: 100px;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.room-categories {
+    border: 3.5px solid white;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3.5px 1px black,
+        inset 0px 0px 4.5px 1px rgb(155, 117, 60);
+    font-size: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f39f86;
+    background-image: linear-gradient(315deg, #f3967a 0%, #f3e8ca 74%);
+    font-family: 'Questrial', sans-serif;
+    min-width: 100px;
+    max-width: 700px;
 }
 
 .player {
@@ -305,7 +322,7 @@ option {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: medium;
-    /* font-weight: bold; */
+    font-weight: 900;
 }
 
 .players-header {
@@ -337,25 +354,76 @@ option {
     padding-right: 15px;
     padding-bottom: 5px;
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .game-room-container {
     border: 5px black solid;
-    padding: 20px 20px 20px 20px;
+    padding: 15px 15px 15px 15px;
     border-radius: 15px;
     box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
         inset -2px -2px 20px #ffffff;
-    background: rgb(148, 194, 242);
-    background: linear-gradient(
-        150deg,
-        rgb(94, 160, 231) 5%,
-        rgb(164, 188, 235) 29%,
-        #ffffff 52%,
-        rgb(235, 180, 241) 80%,
-        rgb(240, 136, 209) 95%
-    );
+    background-color: #eec0c6;
+    background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
+
     justify-content: center;
     align-items: center;
+}
+
+.room-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.categories-header {
+    /* border: 2px solid red; */
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #f39f86;
+    background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+    border-radius: 7px 7px 0 0;
+    border-bottom: 4px solid white;
+    /* text-decoration: underline; */
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: 1000;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 5px #c78d2286;
+    font-size: x-large;
+    box-shadow: inset 0px 0px 2px white;
+    font-family: Jost;
+}
+
+.categories-container {
+    text-align: center;
+    /* border: 2px solid purple; */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category {
+    list-style: none;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: #f39f86;
+    background-image: linear-gradient(315deg, #ecb061 0%, #f3e8ca 74%);
+    box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: medium;
+    font-weight: 900;
 }

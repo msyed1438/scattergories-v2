@@ -6,7 +6,10 @@ const GameRoom = () => {
     return (
         <div className="page-container">
             <div className="game-room-container">
-                <Players />
+                <div className="room-info-container">
+                    <Players />
+
+                </div>
             </div>
         </div>
     )
