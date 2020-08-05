@@ -317,6 +317,8 @@ option {
     box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
     margin-top: 4px;
     margin-bottom: 4px;
+    margin-right: 2px;
+    margin-left: 2px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
@@ -361,15 +363,16 @@ option {
 
 .game-room-container {
     border: 5px black solid;
-    padding: 15px 15px 15px 15px;
+    padding: 20px 20px 20px 20px;
     border-radius: 15px;
     box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
         inset -2px -2px 20px #ffffff;
     background-color: #eec0c6;
-    background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
+    /* background-image: linear-gradient(0deg, #f39a9a 0%, #f1c893 74%); */
 
     justify-content: center;
     align-items: center;
+    min-width: 600px;
 }
 
 .room-info-container {
@@ -405,10 +408,14 @@ option {
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5px;
+    padding-top: 5px;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
+    max-height: 450px;
+    /* overflow: scroll; */
+    
 }
 
 .category {
@@ -418,12 +425,19 @@ option {
     background-color: #f39f86;
     background-image: linear-gradient(315deg, #ecb061 0%, #f3e8ca 74%);
     box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin: 4px;
+
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: medium;
     font-weight: 900;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-label {
+    margin-bottom: 2px;
+    font-size: larger;
 }

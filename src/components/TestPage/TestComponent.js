@@ -18,16 +18,28 @@ const Players = () => {
 };
 
 const Categories = () => {
-    const players = ['Food', 'Cities', 'Songs', 'Cartoons', 'Famous People', 'Pokemon'];
+    const categories = [
+        'Food',
+        'Cities',
+        'Songs',
+        'Cartoons',
+        'Famous People',
+        'Pokemon',
+        // 'Movies',
+        // 'TV Shows',
+    ];
 
     return (
         <div className="room-categories">
             <h3 className="categories-header"> CATEGORIES </h3>
             <div className="categories-container">
-                {players.map(player => (
-                    <li className="category" key={player}>
-                        {player}
-                    </li>
+                {categories.map(category => (
+                    <div className="category-container">
+                        <li className="category" key={category}>
+                            <label className="category-label">{category}</label>
+                            <input type="text" />
+                        </li>
+                    </div>
                 ))}
             </div>
         </div>
