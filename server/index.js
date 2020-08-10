@@ -141,6 +141,10 @@ io.on('connection', clientSocket => {
     clientSocket.on('GET_LIST_OF_ROOMS', () => {
         clientSocket.emit('LIST_OF_ROOMS', getListOfRooms());
     });
+
+    clientSocket.on('GET_CATEGORIES', (roomName) => {
+        clientSocket.emit('UPDATE_CATEGORIES', getRoomCategories(roomName))
+    })
 });
 
 http.listen(port, () => console.log(`App listening on port ${port}!`));

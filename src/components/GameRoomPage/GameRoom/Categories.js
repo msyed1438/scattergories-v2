@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useSelector } from 'react-redux'
+import socket from '../../socketInstance'
+
 
 const Categories = () => {
-    const players = ['Muin', 'Abed', 'Nadir', 'Tahsin', 'MewMew', 'MewTwo'];
+    const [categories, setCategories] = useState([]);
+    const roomName = useSelector(state => state.roomName)
+
+    useEffect(() => {
+        socket.emit('GET_CATEGORIES', roomName)
+        socket.on('UPDATE_CATEGORIES', categories => {
+            console.log('Here are the categories: ', categories)
+            setCategories(categories)
+        })
+    }, [])
+
+    // const categories = [
+    //     'Food',
+    //     'Cities',
+    //     'Songs',
+    //     'Cartoons',
+    //     'Famous People',
+    //     'Pokemon',
+    //     'Movies',
+    //     'TV Shows',
+    // ];
 
     return (
-        <div className="room-players">
-            <h3 className="rooms-header"> PLAYERS </h3>
-            <div className="players-container">
-                {players.map(player => (
-                    <li className="player" key={player}>
-                        {player}
-                    </li>
+        <div className="room-categories">
+            <h3 className="categories-header"> CATEGORIES </h3>
+            <div className="categories-container">
+                {categories.map(category => (
+                    <div className="category-container">
+                        <li className="category" key={category}>
+                            <label className="category-label">{category}</label>
+                            <input type="text" />
+                        </li>
+                    </div>
                 ))}
             </div>
         </div>

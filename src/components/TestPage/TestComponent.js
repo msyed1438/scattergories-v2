@@ -25,8 +25,8 @@ const Categories = () => {
         'Cartoons',
         'Famous People',
         'Pokemon',
-        // 'Movies',
-        // 'TV Shows',
+        'Movies',
+        'TV Shows',
     ];
 
     return (
