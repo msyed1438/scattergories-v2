@@ -275,188 +275,44 @@ option {
     transition: all 0.3s ease-in-out;
 }
 
+li {
+    list-style-type: none;
+}
+
+
+/* CSS Grid styling: */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.25fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas: 'room-name letter-active' 'room-players game-table' 'room-categories game-table';
+    min-width: 800px;
+    min-height: 500px;
+}
+
+.game-table {
+    grid-area: game-table;
+    background-color: red;
+}
+
 .room-players {
-    border: 3.5px solid white;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 3.5px 1px black,
-        inset 0px 0px 4.5px 1px rgb(155, 117, 60);
-    font-size: 20px;
-    display: inline-flex;
-    flex-direction: column;
-    border-radius: 10px;
-    background-color: #f39f86;
-    background-image: linear-gradient(315deg, #f3967a 0%, #f3e8ca 74%);
-    font-family: 'Questrial', sans-serif;
-    min-width: 100px;
-    max-width: 700px;
-    margin-bottom: 20px;
+    grid-area: room-players;
+    background-color: blue;
 }
 
-.player {
-    list-style: none;
-    border: 2px solid white;
-    border-radius: 20px;
-    background-color: #f39f86;
-    background-image: linear-gradient(315deg, #ecb061 0%, #f3e8ca 74%);
-    box-shadow: inset 0px 0px 10px white, 0px 0px 2px 1px rgb(245, 187, 187);
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: 2px;
-    margin-left: 2px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: medium;
-    font-weight: 900;
+.room-name {
+    grid-area: room-name;
+    background-color: purple;
 }
 
-.players-header {
-    /* border: 2px solid red; */
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    background-color: #f39f86;
-    background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
-    border-radius: 7px 7px 0 0;
-    border-bottom: 4px solid white;
-    /* text-decoration: underline; */
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    font-weight: 1000;
-    color: rgb(0, 0, 0);
-    text-shadow: 0px 0px 5px #c78d2286;
-    font-size: x-large;
-    box-shadow: inset 0px 0px 2px white;
-    font-family: Jost;
-}
-
-.players-container {
-    text-align: center;
-    /* border: 2px solid purple; */
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    padding-top: 3px;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.game-room-container {
-    border: 5px black solid;
-    padding: 20px 20px 20px 20px;
-    border-radius: 15px;
-    box-shadow: 2px 2px 7.5px #000000d5, inset 2px 2px 20px #ffffff,
-        inset -2px -2px 20px #ffffff;
-    background-color: #eec0c6;
-    /* background-image: linear-gradient(0deg, #f39a9a 0%, #f1c893 74%); */
-
-    justify-content: center;
-    align-items: center;
-    min-width: 600px;
-}
-
-.room-info-container {
-    display: flex;
-    flex-direction: column;
+.letter-active {
+    grid-area: letter-active;
+    background-color: green;
 }
 
 .room-categories {
-    border: 3.5px solid white;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 3.5px 1px black,
-        inset 0px 0px 4.5px 1px rgb(155, 117, 60);
-    font-size: 20px;
-    display: inline-flex;
-    flex-direction: column;
-    border-radius: 10px;
-    background-color: #f9484a;
-    background-image: linear-gradient(315deg, #f7e797 0%, #f89799 74%);
-    font-family: 'Questrial', sans-serif;
-    min-width: 100px;
-    max-width: 600px;
-}
-
-.categories-header {
-    /* border: 2px solid red; */
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    background-color: #f9484a;
-    background-image: linear-gradient(315deg, #f5db59 0%, #f89799 74%);
-    border-radius: 7px 7px 0 0;
-    border-bottom: 4px solid white;
-    /* text-decoration: underline; */
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    font-weight: 1000;
-    color: rgb(0, 0, 0);
-    text-shadow: 0px 0px 5px #c78d2286;
-    font-size: x-large;
-    box-shadow: inset 0px 0px 2px white;
-    font-family: Jost;
-}
-
-.categories-container {
-    text-align: center;
-    /* border: 2px solid purple; */
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-height: 450px;
-    /* overflow: scroll; */
-    background-color: #f9484a;
-    background-image: linear-gradient(315deg, #fad7d8 0%, #f5b6b8 74%);
-}
-
-.category {
-    list-style: none;
-    border: 2px solid white;
-    border-radius: 20px;
-    background-color: #f9484a;
-    background-image: linear-gradient(315deg, #f7e797 0%, #f5b6b8 74%);
-    box-shadow: inset 0px 0px 10px rgb(245, 225, 127) 81%,
-        0px 0px 2px 1px rgb(245, 187, 187);
-    margin: 4px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: medium;
-    font-weight: 900;
-    display: flex;
-    flex-direction: column;
-}
-
-.category-label {
-    margin-bottom: 2px;
-    font-size: larger;
-    color: white;
-    text-shadow: 1px 1px 3px black, -1px -1px 0 rgb(230, 102, 102), 1px -1px 0 rgb(230, 102, 102),
-        -1px 1px 0 rgb(230, 102, 102), 1px 1px 0 rgb(230, 102, 102) ;
-    font-weight: bolder;
-    /* font-family: Jost; */
-    text-transform: capitalize;
-    /* background-color: red;
-    background: rgb(251, 240, 182);
-    background: linear-gradient(
-        0deg,
-        rgba(251, 240, 182, 1) 25%,
-        rgb(245, 225, 127) 81%
-    );
-    border-radius: 20px 20px 0 0;
-    margin-bottom: 0;
-    padding-bottom: 5px;
-    padding-top: 5px; */
+    grid-area: room-categories;
+    background-color: orange;
 }
