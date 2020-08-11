@@ -5,19 +5,17 @@ const Players = () => {
 
     return (
         <div className="room-players">
-            <h3 className="players-header"> PLAYERS </h3>
-            <div className="players-container">
+            <h3> PLAYERS </h3>
+            <div>
                 {players.map(player => (
-                    <li className="player" key={player}>
-                        {player}
-                    </li>
+                    <li key={player}>{player}</li>
                 ))}
             </div>
         </div>
     );
 };
 
-const Categories = () => {
+const CategoriesSubmission = () => {
     const categories = [
         'Food',
         'Cities',
@@ -31,17 +29,30 @@ const Categories = () => {
 
     return (
         <div className="room-categories">
-            <h3 className="categories-header"> CATEGORIES </h3>
-            <div className="categories-container">
+            <h3> CATEGORIES </h3>
+            <div>
                 {categories.map(category => (
-                    <div className="category-container">
-                        <li className="category" key={category}>
-                            <label className="category-label">{category}</label>
+                    <div>
+                        <li key={category}>
+                            <label>{category}</label>
                             <input type="text" />
                         </li>
                     </div>
                 ))}
             </div>
+            <button>Submit and Stop Round!</button>
+        </div>
+    );
+};
+
+const Layout = () => {
+    return (
+        <div className="grid-container">
+            <div className="game-table">Foo</div>
+            <Players />
+            <div className="room-name">Room Name: Muin's Bitches</div>
+            <div className="letter-active">Intermission . . .</div>
+            <CategoriesSubmission />
         </div>
     );
 };
@@ -50,10 +61,12 @@ const TestComponent = () => {
     return (
         <div className="page-container">
             <div className="game-room-container">
-                <div className="room-info-container">
+                {/* <div className="room-info-container">
                     <Players />
                     <Categories />
-                </div>
+                </div> */}
+
+                <Layout />
             </div>
         </div>
     );

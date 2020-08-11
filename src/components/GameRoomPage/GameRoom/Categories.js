@@ -1,20 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 
-import { useSelector } from 'react-redux'
-import socket from '../../socketInstance'
+import initUserGameState from '../../../../helpers/initUserGameState';
 
+import { useSelector } from 'react-redux';
+import socket from '../../socketInstance';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
-    const roomName = useSelector(state => state.roomName)
+    const roomName = useSelector(state => state.roomName);
 
     useEffect(() => {
-        socket.emit('GET_CATEGORIES', roomName)
+        socket.emit('GET_CATEGORIES', roomName);
         socket.on('UPDATE_CATEGORIES', categories => {
-            console.log('Here are the categories: ', categories)
-            setCategories(categories)
-        })
-    }, [])
+            console.log('Here are the categories: ', categories);
+            setCategories(categories);
+        });
+    }, []);
+
+    const [userInput, setUserInput] = useReducer(
+        (state, newState) => ({ ...state, ...newState }), // <--- Reducer
+        initUserGameState(categories) // <---Initial State: e.g. initUserGameState(['Cities', 'Food']) -> Output:  {Cities: '', Food: ''}
+    );
+
+    const handleChange = evt => {
+        const name = evt.target.name;
+        const newValue = evt.target.value;
+        setUserInput({ [name]: newValue });
+    };
 
     // const categories = [
     //     'Food',
@@ -35,7 +47,7 @@ const Categories = () => {
                     <div className="category-container">
                         <li className="category" key={category}>
                             <label className="category-label">{category}</label>
-                            <input type="text" />
+                            <input type="text" name={category} onChange={handleChange}/>
                         </li>
                     </div>
                 ))}
