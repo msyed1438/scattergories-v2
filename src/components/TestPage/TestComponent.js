@@ -50,7 +50,7 @@ const Layout = () => {
         <div className="grid-container">
             <div className="game-table">Foo</div>
             <Players />
-            <div className="room-name">Room Name: Muin's Bitches</div>
+            <div className="room-name">Room Name: Mewmew Squad</div>
             <div className="letter-active">Intermission . . .</div>
             <CategoriesSubmission />
         </div>
