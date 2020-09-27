@@ -2,18 +2,22 @@ import React, { useState, useEffect, useReducer } from 'react';
 
 import initUserGameState from '../../../../helpers/initUserGameState';
 
-import { useSelector } from 'react-redux';
+import { setCategories as setReduxStoreCategories } from '../../../reducks/ducks/index';
+import { useSelector, useDispatch } from 'react-redux';
 import socket from '../../socketInstance';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     const roomName = useSelector(state => state.roomName);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
         socket.emit('GET_CATEGORIES', roomName);
         socket.on('UPDATE_CATEGORIES', categories => {
             console.log('Here are the categories: ', categories);
             setCategories(categories);
+            dispatch(setReduxStoreCategories(categories));
         });
     }, []);
 
@@ -28,30 +32,33 @@ const Categories = () => {
         setUserInput({ [name]: newValue });
     };
 
-    // const categories = [
-    //     'Food',
-    //     'Cities',
-    //     'Songs',
-    //     'Cartoons',
-    //     'Famous People',
-    //     'Pokemon',
-    //     'Movies',
-    //     'TV Shows',
-    // ];
-
     return (
+        // <div className="room-categories">
+        //     <h3 className="categories-header"> CATEGORIES </h3>
+        //     <div className="categories-container">
+        //         {categories.map(category => (
+        //             <div className="category-container" key={category}>
+        //                 <li className="category" key={category}>
+        //                     <label className="category-label">{category}</label>
+        //                     <input type="text" name={category} onChange={handleChange}/>
+        //                 </li>
+        //             </div>
+        //         ))}
+        //     </div>
+        // </div>
         <div className="room-categories">
-            <h3 className="categories-header"> CATEGORIES </h3>
-            <div className="categories-container">
+            <h3> CATEGORIES </h3>
+            <div>
                 {categories.map(category => (
-                    <div className="category-container">
-                        <li className="category" key={category}>
-                            <label className="category-label">{category}</label>
-                            <input type="text" name={category} onChange={handleChange}/>
+                    <div>
+                        <li key={category}>
+                            <label>{category}</label>
+                            <input type="text" onChange={handleChange} />
                         </li>
                     </div>
                 ))}
             </div>
+            <button>Submit and Stop Round!</button>
         </div>
     );
 };
