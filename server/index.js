@@ -19,23 +19,23 @@ const gameState = {
 
 //Mock Data:
 
-gameState.rooms['testRoom'] = new Room('testRoom', [
-    'Foods',
-    'Songs',
-    'Countries',
-]);
-gameState.rooms.testRoom.addPlayer('Muin', 123);
-gameState.rooms.testRoom.addPlayer('Soud', 456);
-gameState.rooms.testRoom.addPlayer('Mahir', 789);
+// gameState.rooms['testRoom'] = new Room('testRoom', [
+//     'Foods',
+//     'Songs',
+//     'Countries',
+// ]);
+// gameState.rooms.testRoom.addPlayer('Muin', 123);
+// gameState.rooms.testRoom.addPlayer('Soud', 456);
+// gameState.rooms.testRoom.addPlayer('Mahir', 789);
 
-gameState.rooms['anotherRoom'] = new Room('anotherRoom', [
-    'Cartoons',
-    'Artists',
-    'Computer Science',
-]);
-gameState.rooms.anotherRoom.addPlayer('MewMew', 123);
-gameState.rooms.anotherRoom.addPlayer('Choyon', 456);
-gameState.rooms.anotherRoom.addPlayer('Riham', 789);
+// gameState.rooms['anotherRoom'] = new Room('anotherRoom', [
+//     'Cartoons',
+//     'Artists',
+//     'Computer Science',
+// ]);
+// gameState.rooms.anotherRoom.addPlayer('MewMew', 123);
+// gameState.rooms.anotherRoom.addPlayer('Choyon', 456);
+// gameState.rooms.anotherRoom.addPlayer('Riham', 789);
 
 //Helper functions
 
@@ -142,9 +142,9 @@ io.on('connection', clientSocket => {
         clientSocket.emit('LIST_OF_ROOMS', getListOfRooms());
     });
 
-    clientSocket.on('GET_CATEGORIES', (roomName) => {
-        clientSocket.emit('UPDATE_CATEGORIES', getRoomCategories(roomName))
-    })
+    clientSocket.on('GET_CATEGORIES', roomName => {
+        clientSocket.emit('UPDATE_CATEGORIES', getRoomCategories(roomName));
+    });
 });
 
 http.listen(port, () => console.log(`App listening on port ${port}!`));
