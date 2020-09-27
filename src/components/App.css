@@ -288,8 +288,8 @@ li {
     grid-template-rows: 0.25fr 1fr 1fr;
     gap: 10px 10px;
     grid-template-areas: 'room-name letter-active' 'room-players game-table' 'room-categories game-table';
-    min-width: 800px;
-    min-height: 500px;
+    min-width: 900px;
+    min-height: 600px;
 }
 
 .game-table {
@@ -309,7 +309,7 @@ li {
 
 .letter-active {
     grid-area: letter-active;
-    background-color: green;
+    background-color: yellow;
 }
 
 .room-categories {
