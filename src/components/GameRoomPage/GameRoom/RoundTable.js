@@ -1,25 +1,28 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const RoundTable = () => {
+    const categories = useSelector(state => state.categories);
+
     return (
-        <table style="width:100%">
+        <table id="customers" className="game-table">
+            <thead>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </thead>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
             </tr>
             <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-            </tr>
-            <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
+                <td>Berglunds snabbköp</td>
+                <td>Christina Berglund</td>
+                <td>Sweden</td>
             </tr>
         </table>
-    )
-}
+    );
+};
 
-export default RoundTable
+export default RoundTable;
