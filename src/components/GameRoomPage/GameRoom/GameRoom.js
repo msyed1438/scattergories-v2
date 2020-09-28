@@ -4,14 +4,14 @@ import { useHistory } from 'react-router-dom';
 
 import Players from './Players';
 import CategoriesSubmission from './Categories';
+import RoundTable from './RoundTable';
 
 const GameRoom = () => {
-
     const history = useHistory();
 
     useEffect(() => {
         socket.on('disconnect', () => {
-            history.push('/')
+            history.push('/');
         });
     }, []);
 
@@ -19,7 +19,7 @@ const GameRoom = () => {
         <div className="page-container">
             <div className="game-room-container">
                 <div className="grid-container">
-                    <div className="game-table">Foo</div>
+                    <RoundTable />
                     <Players />
                     <div className="room-name">Room Name: Mewmew Squad</div>
                     <div className="letter-active">Intermission . . .</div>
