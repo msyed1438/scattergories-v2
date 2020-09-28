@@ -1,73 +1,76 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import clientSocket from '../../socketInstance'
+import clientSocket from '../../socketInstance';
 
-import { joinGameRoom } from '../../../reducks/ducks'
+import { joinGameRoom } from '../../../reducks/ducks';
 
 const JoinGame = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const [rooms, setRooms] = useState([])
-    const [username, setUsername] = useState('')
-    const [roomName, setRoomName] = useState('<room name missing>')
-    const [buttonDisabled, setButtonDisabled] = useState(true)
+    const [rooms, setRooms] = useState([]);
+    const [username, setUsername] = useState('');
+    const [roomName, setRoomName] = useState('');
+    const [buttonDisabled, setButtonDisabled] = useState(true);
 
     const handleUsernameChange = e => {
-        const re = /^[a-zA-Z]+$/ //Only letters allowed as input
+        const re = /^[a-zA-Z]+$/; //Only letters allowed as input
 
         // if value is not blank, then test the regex
         if (e.target.value === '' || re.test(e.target.value)) {
-            setUsername(e.target.value)
+            setUsername(e.target.value);
         }
-    }
+    };
 
     const handleChangeOfRoomName = e => {
-        const selectedRoomName = e.target.value
-        setRoomName(selectedRoomName)
-    }
+        const selectedRoomName = e.target.value;
+        console.log('Selected the room name. Room is : ', selectedRoomName);
+        setRoomName(selectedRoomName);
+    };
 
     const handleRoomSelectionButtonClick = () => {
         const payload = {
             username,
             roomName,
-        }
+        };
 
-        console.log('Joining the room. Here is the roomName: ', roomName)
+        console.log('Joining the room. Here is the roomName: ', roomName);
 
-        clientSocket.emit('SET_SOCKET_USERNAME', username)
-        clientSocket.emit('JOIN_GAME_ROOM', roomName)
-        dispatch(joinGameRoom(payload))
-    }
+        clientSocket.emit('SET_SOCKET_USERNAME', username);
+        clientSocket.emit('JOIN_GAME_ROOM', roomName);
+        dispatch(joinGameRoom(payload));
+    };
 
     useEffect(() => {
-        clientSocket.emit('GET_LIST_OF_ROOMS')
+        clientSocket.emit('GET_LIST_OF_ROOMS');
 
         clientSocket.on('LIST_OF_ROOMS', rooms => {
-            setRooms(rooms)
-        })
+            setRooms(rooms);
+        });
 
         clientSocket.on('UPDATE_ROOMS', rooms => {
-            console.log('We got the rooms on JoinRoom component: ', rooms)
-            setRooms(rooms)
-        })
+            console.log('We got the rooms on JoinRoom component: ', rooms);
+            setRooms(rooms);
+        });
 
         clientSocket.on('ROOM_CATEGORIES', categories => {
-            console.log('Got the categories: ', categories)
-        })
-    }, [])
+            console.log('Got the categories: ', categories);
+        });
+    }, []);
 
     useEffect(() => {
-        if (username.length >= 5) {
-            setButtonDisabled(false)
+        if (username.length >= 5 && roomName !== '') {
+            setButtonDisabled(false);
         } else {
-            setButtonDisabled(true)
+            setButtonDisabled(true);
         }
-    }, [username])
+    }, [username, roomName]);
+
+    
 
     return (
         <div className="page-container">
@@ -99,12 +102,15 @@ const JoinGame = () => {
                             value={roomName}
                             size={4}
                         >
+                            <option disabled value="">
+                                Choose your room
+                            </option>
                             {rooms.map(room => {
                                 return (
                                     <option value={room} key={room}>
                                         {room}
                                     </option>
-                                )
+                                );
                             })}
                         </select>
                     </div>
@@ -130,7 +136,7 @@ const JoinGame = () => {
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default JoinGame
+export default JoinGame;
