@@ -50,8 +50,8 @@ const Categories = () => {
             <h3> CATEGORIES </h3>
             <div>
                 {categories.map(category => (
-                    <div>
-                        <li key={category}>
+                    <div key={category}>
+                        <li >
                             <label>{category}</label>
                             <input type="text" onChange={handleChange} />
                         </li>
