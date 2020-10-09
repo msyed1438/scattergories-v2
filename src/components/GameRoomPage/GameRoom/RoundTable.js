@@ -5,23 +5,39 @@ const RoundTable = () => {
     const categories = useSelector(state => state.categories);
 
     return (
-        <table id="customers" className="game-table">
-            <thead>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
-            </thead>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Berglunds snabbköp</td>
-                <td>Christina Berglund</td>
-                <td>Sweden</td>
-            </tr>
-        </table>
+        <div className="game-table">
+            <table id="game-table">
+                <thead>
+                    <tr>
+                        {categories.map(category => (
+                            <th key={category}>{category}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                    </tr>
+                    <tr>
+                        <td>Berglunds snabbköp</td>
+                        <td>Christina Berglund</td>
+                        <td>Sweden</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Alfreds Futterkiste</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     );
 };
 
