@@ -1,4 +1,5 @@
 import React from 'react';
+import GameTable from '../GameRoomPage/GameRoom/RoundTable'
 
 const Players = () => {
     const players = ['Muin', 'Abed', 'Nadir', 'Tahsin', 'MewMew', 'MewTwo'];
@@ -48,7 +49,9 @@ const CategoriesSubmission = () => {
 const Layout = () => {
     return (
         <div className="grid-container">
-            <div className="game-table">Foo</div>
+            <div className="game-table">
+                <GameTable />
+            </div>
             <Players />
             <div className="room-name">Room Name: Mewmew Squad</div>
             <div className="letter-active">Intermission . . .</div>
