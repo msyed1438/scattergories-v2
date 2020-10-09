@@ -1,5 +1,5 @@
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const path = require('path');
 
 const config = {
     entry: './src/components/index.js',
@@ -23,6 +23,14 @@ const config = {
                 use: 'file-loader',
             },
             {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
+            {
                 test: /\.png$/,
                 use: [
                     {
@@ -32,12 +40,12 @@ const config = {
                         },
                     },
                 ],
-            }
+            },
         ],
     },
     resolve: {
         extensions: ['.js', '.jsx'],
     },
-}
+};
 
-module.exports = config
+module.exports = config;
