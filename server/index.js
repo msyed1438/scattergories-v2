@@ -154,7 +154,7 @@ io.on('connection', clientSocket => {
         gameState.rooms[roomName].gameIsActive = !gameState.rooms[roomName]
             .gameIsActive;
 
-        clientSocket.emit(
+        io.in(roomName).emit(
             'UPDATE_GAME_STATUS',
             gameState.rooms[roomName].gameIsActive
         );

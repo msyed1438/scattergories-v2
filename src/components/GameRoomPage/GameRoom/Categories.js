@@ -9,7 +9,7 @@ import socket from '../../socketInstance';
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     const roomName = useSelector(state => state.roomName);
-
+    const gameActive = useSelector(state => state.gameActive);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -32,6 +32,11 @@ const Categories = () => {
         setUserInput({ [name]: newValue });
     };
 
+    const handleStopRoundClick = () => {
+        socket.emit('TOGGLE_GAME_STATUS', roomName);
+        dispatch(setGameActive(!gameActive));
+    };
+
     return (
         // <div className="room-categories">
         //     <h3 className="categories-header"> CATEGORIES </h3>
@@ -52,14 +57,16 @@ const Categories = () => {
             <div>
                 {categories.map(category => (
                     <div key={category}>
-                        <li >
+                        <li>
                             <label>{category}</label>
                             <input type="text" onChange={handleChange} />
                         </li>
                     </div>
                 ))}
             </div>
-            <button>Submit and Stop Round!</button>
+            <button onClick={handleStopRoundClick}>
+                Submit and Stop Round!
+            </button>
         </div>
     );
 };
