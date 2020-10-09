@@ -15,7 +15,7 @@ const Categories = () => {
     useEffect(() => {
         socket.emit('GET_CATEGORIES', roomName);
         socket.on('UPDATE_CATEGORIES', categories => {
-            console.log('Here are the categories: ', categories);
+            // console.log('Here are the categories: ', categories);
             setCategories(categories);
             dispatch(setReduxStoreCategories(categories));
         });
@@ -46,6 +46,7 @@ const Categories = () => {
         //         ))}
         //     </div>
         // </div>
+
         <div className="room-categories">
             <h3> CATEGORIES </h3>
             <div>

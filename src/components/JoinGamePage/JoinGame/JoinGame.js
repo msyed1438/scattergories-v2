@@ -7,7 +7,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import clientSocket from '../../socketInstance';
 
-import { joinGameRoom } from '../../../reducks/ducks';
+import { joinGameRoom, setCategories } from '../../../reducks/ducks';
 
 const JoinGame = () => {
     const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const JoinGame = () => {
 
     const handleChangeOfRoomName = e => {
         const selectedRoomName = e.target.value;
-        console.log('Selected the room name. Room is : ', selectedRoomName);
+        // console.log('Selected the room name. Room is : ', selectedRoomName);
         setRoomName(selectedRoomName);
     };
 
@@ -38,7 +38,7 @@ const JoinGame = () => {
             roomName,
         };
 
-        console.log('Joining the room. Here is the roomName: ', roomName);
+        // console.log('Joining the room. Here is the roomName: ', roomName);
 
         clientSocket.emit('SET_SOCKET_USERNAME', username);
         clientSocket.emit('JOIN_GAME_ROOM', roomName);
@@ -53,12 +53,13 @@ const JoinGame = () => {
         });
 
         clientSocket.on('UPDATE_ROOMS', rooms => {
-            console.log('We got the rooms on JoinRoom component: ', rooms);
+            // console.log('We got the rooms on JoinRoom component: ', rooms);
             setRooms(rooms);
         });
 
         clientSocket.on('ROOM_CATEGORIES', categories => {
-            console.log('Got the categories: ', categories);
+            // console.log('Got the categories: ', categories);
+            dispatch(setCategories(categories));
         });
     }, []);
 
@@ -69,8 +70,6 @@ const JoinGame = () => {
             setButtonDisabled(true);
         }
     }, [username, roomName]);
-
-    
 
     return (
         <div className="page-container">

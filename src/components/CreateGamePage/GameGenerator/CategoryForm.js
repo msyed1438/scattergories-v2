@@ -1,65 +1,69 @@
 //Hooks
-import React, { useEffect, useReducer, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useReducer, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Helpers
-import generateInitialCategoryState from '../../../../helpers/generateInitialCategoryState'
-import createArrayFromOneThroughN from '../../../../helpers/createArrayFromOneThroughN'
+import generateInitialCategoryState from '../../../../helpers/generateInitialCategoryState';
+import createArrayFromOneThroughN from '../../../../helpers/createArrayFromOneThroughN';
 
 //Components
-import CategoryInput from './CategoryInput'
+import CategoryInput from './CategoryInput';
 
 //Actions
-import { createCategories } from '../../../reducks/ducks/index'
+import { createCategories } from '../../../reducks/ducks/index';
 
 //Routing
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 //Socket
-import clientSocket from '../../socketInstance'
+import clientSocket from '../../socketInstance';
 
 const CategoryForm = () => {
-    const dispatch = useDispatch() //Dispatch hook to redux store
-    const numberOfCategories = useSelector(state => state.numberOfCategories) // e.g. 3
-    const roomName = useSelector(state => state.roomName)
+    const dispatch = useDispatch(); //Dispatch hook to redux store
+    const numberOfCategories = useSelector(state => state.numberOfCategories); // e.g. 3
+    const roomName = useSelector(state => state.roomName);
 
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({ ...state, ...newState }), // <--- Reducer
         generateInitialCategoryState(numberOfCategories) // <---Initial State: e.g. generateNumberOfInitialCategories(3) -> Output:  {category1: '', category2: '', category3: ''}
-    )
+    );
 
-    const [buttonDisabled, setButtonDisabled] = useState(true)
+    const [buttonDisabled, setButtonDisabled] = useState(true);
 
     useEffect(() => {
-        const categories = Object.values(userInput)
+        const categories = Object.values(userInput);
         if (categories.every(category => category.length >= 3)) {
-            setButtonDisabled(false)
+            setButtonDisabled(false);
         } else {
-            setButtonDisabled(true)
+            setButtonDisabled(true);
         }
-    }, [userInput])
+    }, [userInput]);
 
     const handleCreateGameRoomButtonClick = () => {
-        const categories = Object.values(userInput)
-        const categoriesAction = createCategories(categories)
+        const categories = Object.values(userInput);
+        const categoriesAction = createCategories(categories);
 
-        dispatch(categoriesAction)
+        dispatch(categoriesAction);
+
 
         const roomConfig = {
             roomName,
             categories,
-        }
+        };
 
-        clientSocket.emit('CREATE_GAME_ROOM', roomConfig)
-    }
+        // console.log('Here is the roomConfig created on client side in CategoryForm: ', roomConfig)
 
-    const oneToNumOfCategories = createArrayFromOneThroughN(numberOfCategories) // e.g. createArrayFromOneThroughN(3) -> [1, 2, 3]
+
+        clientSocket.emit('CREATE_GAME_ROOM', roomConfig);
+    };
+
+    const oneToNumOfCategories = createArrayFromOneThroughN(numberOfCategories); // e.g. createArrayFromOneThroughN(3) -> [1, 2, 3]
 
     const handleChange = evt => {
-        const name = evt.target.name
-        const newValue = evt.target.value
-        setUserInput({ [name]: newValue })
-    }
+        const name = evt.target.name;
+        const newValue = evt.target.value;
+        setUserInput({ [name]: newValue });
+    };
 
     //TODO: Add form validation to disable button until all entries are changed
     return (
@@ -76,7 +80,7 @@ const CategoryForm = () => {
                             key={index}
                             userInput={userInput}
                         />
-                    )
+                    );
                 })}
             </div>
             <Link
@@ -96,7 +100,7 @@ const CategoryForm = () => {
                 </button>
             </Link>
         </div>
-    )
-}
+    );
+};
 
-export default CategoryForm
+export default CategoryForm;

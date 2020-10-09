@@ -11,7 +11,7 @@ const Players = () => {
     useEffect(() => {
         socket.emit('GET_PLAYERS', roomName);
         socket.on('UPDATE_PLAYERS', players => {
-            console.log('Here are the players: ', players);
+            // console.log('Here are the players: ', players);
             setPlayers(players);
         });
     }, []);
