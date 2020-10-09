@@ -3,6 +3,7 @@ const CREATE_ROOM = 'CREATE_ROOM';
 const CREATE_CATEGORIES = 'CREATE_CATEGORIES';
 const JOIN_ROOM = 'JOIN_ROOM';
 const SET_CATEGORIES = 'SET_CATEGORIES';
+const SET_GAME_ACTIVE = 'SET_GAME_ACTIVE';
 
 //Initial State
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
     username: '',
     categories: [],
     numberOfCategories: 1,
-    gameIsInSession: false,
+    gameActive: false,
     gameEntries: {},
     roundData: {},
 };
@@ -56,6 +57,15 @@ export default function reducer(state = initialState, action = {}) {
             };
         }
 
+        case SET_GAME_ACTIVE: {
+            const gameActiveState = action.payload;
+
+            return {
+                ...state,
+                gameActive: gameActiveState,
+            };
+        }
+
         default:
             return state;
     }
@@ -76,6 +86,10 @@ export function joinGameRoom(roomConfig) {
 
 export function setCategories(categories) {
     return { type: SET_CATEGORIES, payload: categories };
+}
+
+export function setGameActive(isActive) {
+    return { type: SET_GAME_ACTIVE, payload: isActive };
 }
 
 // side effects, only as applicable
