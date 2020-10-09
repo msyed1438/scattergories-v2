@@ -31,6 +31,7 @@ class Room {
     constructor(roomName, categories) {
         this.roomName = roomName,
         this.room = {},
+        this.gameIsActive = false,
         this.lettersNotPlayedSoFar = [
                 'a',
                 'b',

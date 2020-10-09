@@ -106,36 +106,24 @@ io.on('connection', clientSocket => {
         console.log(`Player ${clientSocket.username} has joined the room. `);
         clientSocket.join(roomName);
         clientSocket.roomName = roomName;
-        // clientSocket.emit('ROOM_CATEGORIES', getRoomCategories(roomName))
+        clientSocket.emit('ROOM_CATEGORIES', getRoomCategories(roomName));
         gameState.rooms[roomName].addPlayer(clientSocket.username);
         io.to(clientSocket.roomName).emit(
             'UPDATE_PLAYERS',
             getRoomPlayers(roomName)
         );
-        console.log('Here is gameState: ', gameState.rooms);
-        console.log(
-            'Here is the ',
-            roomName,
-            ' room name in the game state: ',
-            gameState.rooms[roomName]
-        );
-        console.log(
-            'Here are the players in room [',
-            roomName,
-            ']:  ',
-            Object.keys(gameState.rooms[roomName].room)
-        );
     });
 
     clientSocket.on('GET_PLAYERS', roomName => {
         console.log(
+            'This is the roomName provided for GET_PLAYERS: ',
+            roomName
+        );
+        console.log(
             'Client has requested all players in the room. Here they are: ',
-            getRoomPlayers(clientSocket.roomName)
+            getRoomPlayers(roomName)
         );
-        io.in(roomName).emit(
-            'UPDATE_PLAYERS',
-            getRoomPlayers(clientSocket.roomName)
-        );
+        io.in(roomName).emit('UPDATE_PLAYERS', getRoomPlayers(roomName));
     });
 
     clientSocket.on('GET_LIST_OF_ROOMS', () => {
@@ -144,6 +132,32 @@ io.on('connection', clientSocket => {
 
     clientSocket.on('GET_CATEGORIES', roomName => {
         clientSocket.emit('UPDATE_CATEGORIES', getRoomCategories(roomName));
+    });
+
+    clientSocket.on('GET_GAME_STATUS', roomName => {
+        console.log('Retrieving the current room state: ', gameState.rooms);
+        clientSocket.emit(
+            'UPDATE_GAME_STATUS',
+            gameState.rooms[roomName].gameIsActive
+        );
+    });
+
+    clientSocket.on('TOGGLE_GAME_STATUS', roomName => {
+        console.log(
+            'Toggling the room status of room name: ',
+            roomName,
+            ' from ',
+            gameState.rooms[roomName].gameIsActive,
+            ' to ',
+            !gameState.rooms[roomName].gameIsActive
+        );
+        gameState.rooms[roomName].gameIsActive = !gameState.rooms[roomName]
+            .gameIsActive;
+
+        clientSocket.emit(
+            'UPDATE_GAME_STATUS',
+            gameState.rooms[roomName].gameIsActive
+        );
     });
 });
 
