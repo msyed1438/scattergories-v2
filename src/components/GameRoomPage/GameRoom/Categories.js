@@ -1,25 +1,18 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 import initUserGameState from '../../../../helpers/initUserGameState';
 
-import { setCategories as setReduxStoreCategories } from '../../../reducks/ducks/index';
+import { setGameActive } from '../../../reducks/ducks/index';
 import { useSelector, useDispatch } from 'react-redux';
 import socket from '../../socketInstance';
 
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
+    // const [categories, setCategories] = useState([]);
+    const categories = useSelector(state => state.categories);
     const roomName = useSelector(state => state.roomName);
     const gameActive = useSelector(state => state.gameActive);
+    const username = useSelector(state => state.username);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        socket.emit('GET_CATEGORIES', roomName);
-        socket.on('UPDATE_CATEGORIES', categories => {
-            // console.log('Here are the categories: ', categories);
-            setCategories(categories);
-            dispatch(setReduxStoreCategories(categories));
-        });
-    }, []);
 
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({ ...state, ...newState }), // <--- Reducer
@@ -29,10 +22,48 @@ const Categories = () => {
     const handleChange = evt => {
         const name = evt.target.name;
         const newValue = evt.target.value;
+
+        // console.log('........')
+        // console.log('Name of the input being changed: ', name)
+        // console.log('Value being typed into the field: ', newValue)
+        // console.log('Handle change is firing in Categories component')
+        // console.log('userInput before change: ', userInput)
+
         setUserInput({ [name]: newValue });
+        // console.log('User input after change: ', userInput)
+        // console.log('........')
+    };
+
+    useEffect(() => {
+        socket.on('SUBMIT_ROUND_DATA', () => {
+            // console.log('Here is what the userInput looks like: ', userInput);
+            socket.emit('ROUND_DATA', roundData());
+        });
+    }, [userInput]);
+
+    const getPlayerEntries = () => Object.values(userInput);
+    const roundData = () => {
+        // console.log('Here are the categories: ', categories)
+        // console.log('Was our initial state generated properly? -> ', initUserGameState(categories))
+        // console.log(
+        //     'Here is what the player entries look like: ',
+        //     getPlayerEntries()
+        // );
+        return { username, entries: getPlayerEntries(), roomName };
     };
 
     const handleStopRoundClick = () => {
+        const gameConfig = {
+            roomName,
+            username,
+        };
+
+        // socket.on('SUBMIT_ROUND_DATA', () => {
+        //     console.log('Here is what the roundData looks like: ', roundData());
+        //     socket.emit('ROUND_DATA', roundData());
+        // });
+
+        socket.emit('END_ROUND', gameConfig);
         socket.emit('TOGGLE_GAME_STATUS', roomName);
         dispatch(setGameActive(!gameActive));
     };
@@ -59,7 +90,12 @@ const Categories = () => {
                     <div key={category}>
                         <li>
                             <label>{category}</label>
-                            <input type="text" onChange={handleChange} />
+                            <input
+                                name={category}
+                                type="text"
+                                onChange={handleChange}
+                                value={userInput[category]}
+                            />
                         </li>
                     </div>
                 ))}
