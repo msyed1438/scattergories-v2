@@ -52,8 +52,7 @@ const CategoryForm = () => {
         };
 
         // console.log('Here is the roomConfig created on client side in CategoryForm: ', roomConfig)
-
-
+        
         clientSocket.emit('CREATE_GAME_ROOM', roomConfig);
     };
 
