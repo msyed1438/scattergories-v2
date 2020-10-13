@@ -159,6 +159,32 @@ io.on('connection', clientSocket => {
             gameState.rooms[roomName].gameIsActive
         );
     });
+
+    clientSocket.on('END_ROUND', ({ roomName, username }) => {
+        console.log(`${username} has ended the round`);
+        io.in(roomName).emit('SUBMIT_ROUND_DATA');
+    });
+
+    clientSocket.on('ROUND_DATA', ({ roomName, username, entries }) => {
+        // console.log(
+        //     `For room ${roomName} player ${username} has submitted these entries: ${entries}`
+        // );
+        gameState.rooms[roomName].room[username].setWordsPlayed(entries);
+
+        // if (gameState.rooms[roomName].hasAllPlayersSubmissions()) {
+        //     const totalEntries = gameState.rooms[roomName].getRoundEntries();
+        //     console.log('Now sending the total game round data: ', totalEntries);
+
+        //     gameState.rooms[roomName].resetPlayerSubmissions();
+        //     io.in(roomName).emit('TOTAL_ROUND_DATA', totalEntries);
+        // }
+
+        const totalEntries = gameState.rooms[roomName].getRoundEntries();
+        // console.log('Now sending the total game round data: ', totalEntries);
+
+        // gameState.rooms[roomName].resetPlayerSubmissions();
+        io.in(roomName).emit('TOTAL_ROUND_DATA', totalEntries);
+    });
 });
 
 http.listen(port, () => console.log(`App listening on port ${port}!`));
